@@ -1,7 +1,3 @@
-<font size=72 >**Contents**</font> 
-
-[TOC]
-
 # Group 4 Members  
 Name|Pinyin Name|English Name
 -|-|-
