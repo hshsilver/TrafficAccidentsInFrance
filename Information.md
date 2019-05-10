@@ -4,7 +4,7 @@
 #Group 4 Members
 Name|Pinyin Name|English Name
 -|-|-
-何书豪|Shuhao He|Silver
+何书豪|Shuhao He|Silver
 李朝晖|Zhaohui Li|
 刘洋|Yang Liu|
 
