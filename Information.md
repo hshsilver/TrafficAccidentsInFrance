@@ -1,14 +1,14 @@
-<font size=72 >**Contents**</font>
+<font size=72 >**Contents**</font> 
 [TOC]
 
-#Group 4 Members
+# Group 4 Members  
 Name|Pinyin Name|English Name
 -|-|-
 何书豪|Shuhao He|Silver
 李朝晖|Zhaohui Li|
 刘洋|Yang Liu|
 
-#Technology Stack
+# Technology Stack  
  - Front-end
      - HTML+CSS+JavaScript
      - AngularJS (TypeScript)
@@ -23,22 +23,22 @@ Name|Pinyin Name|English Name
  - Addition
     - Other visualization tools, such as QGIS3
 
-#Division of labour
+# Division of labour
 Name|Jobs
 -|-
 Shuhao He| 	Document & Slides(Including PRD, prototype)<br>Visualization<br>UI/ UX Beautification
 Zhaohui Li|Back-end<br>Front-end<br>Deploy to server
 Yang Liu|Machine Learning <br>(Clusting, Dimensionality reduction & Predicting)
 
-#Collaborative
+# Collaborative
 Types|Tools
 -|-
 Files|OneDrive	
 Documents|OneNote powered by OneDrive	
 Codes|GitHub	https://github.com/hshsilver/TrafficAccidentsInFrance/
 
-#Timeline
-##Table
+# Timeline
+## Table
 Tasks|Duration
 -|-
 Choose a dataset<br>Draw UML diagrams|1 week
