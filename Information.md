@@ -1,4 +1,4 @@
-# Group 4 Members  
+# Members of Group 4 
 Name|Pinyin Name|English Name
 -|-|-
 何书豪|Shuhao He|Silver
