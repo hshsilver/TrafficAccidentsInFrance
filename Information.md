@@ -20,7 +20,7 @@ Name|Pinyin Name|English Name
  - Addition
     - Other visualization tools, such as QGIS3
 
-# Division of labour
+# Repartition (Division of labour)
 Name|Jobs
 -|-
 Shuhao He| 	Document & Slides(Including PRD, prototype)<br>Visualization<br>UI/ UX Beautification
