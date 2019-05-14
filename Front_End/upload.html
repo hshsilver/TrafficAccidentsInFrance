@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<!-- 
+Template Name: Griffin - Responsive Bootstrap 4 Admin Dashboard Template
+Author: Hencework
+Support: support@hencework.com
+
+License: You must have a valid license purchased only from templatemonster to legally use the template for your project.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Accident Mining</title>
+    <meta name="description" content="Data mining about the accident in France." />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="dist/img/logo_1.png">
+    <link rel="icon" href="dist/img/logo_1.png" type="image/x-icon">
+
+    <!-- select2 CSS -->
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Daterangepicker CSS -->
+    <link href="vendors/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+
+    <!-- Toggles CSS -->
+    <link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
+    <link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-it">
+        <div class="loader-pendulums"></div>
+    </div>
+    <!-- /Preloader -->
+    
+	<!-- HK Wrapper -->
+	<div class="hk-wrapper hk-alt-nav">
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt">
+            <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
+            <a class="navbar-brand" href="index.html">
+                <img class="brand-img d-inline-block align-top" src="dist/img/logo_1.png" alt="brand" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarCollapseAlt">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" >Home</a>
+                    </li>
+                    <li class="nav-item dropdown show-on-hover">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Predict
+							</a>
+                        <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                            <a class="dropdown-item" href="predicts.html">Predicts</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown show-on-hover">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Visualization
+							</a>
+                        <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+							<a class="dropdown-item" href="analysis.html">Analysis</a>
+							<a class="dropdown-item" href="map.html">Map</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="upload.html" >Upload</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav hk-navbar-content">
+                <li class="nav-item dropdown dropdown-authentication">
+					<a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i data-feather="settings"></i></span></a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                        <h6 class="dropdown-item"><a href="javascript:void(0);" class="">English</a></h6>
+						<h6 class="dropdown-item"><a href="javascript:void(0);" class="">Franch</a></h6>
+						<h6 class="dropdown-item"><a href="javascript:void(0);" class="">Chinese</a></h6>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /Top Navbar -->
+
+        <!-- Main Content -->
+        <div class="hk-pg-wrapper">
+            <!-- Breadcrumb -->
+            <nav class="hk-breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-light bg-transparent">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Upload</li>
+                </ol>
+            </nav>
+            <!-- /Breadcrumb -->
+
+            <!-- Container -->
+            <div class="container-fluid">
+                <!-- Title -->
+                <div class="hk-pg-header">
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span>Upload Accident</h4>
+                </div>
+                <!-- /Title -->
+
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <section class="hk-sec-wrapper">
+                            <h5 class="hk-sec-title">Details</h5>
+                            <p class="mb-25">Please enter the details of the accident you want to upload.</p>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6 form-group">
+                                                <label for="longitude">Longitude:</label>
+                                                <input class="form-control" id="longitude" placeholder="" value="" type="text">
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label for="latitude">Latitude:</label>
+                                                <input class="form-control" id="latitude" placeholder="" value="" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-5 mb-10">
+                                                <label for="country">Country</label>
+                                                <select class="form-control custom-select d-block w-100" id="country">
+                                                    <option value="">Choose...</option>
+                                                    <option>United States</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 mb-10">
+                                                <label for="state">State</label>
+                                                <select class="form-control custom-select d-block w-100" id="state">
+                                                    <option value="">Choose...</option>
+                                                    <option>California</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 mb-10">
+                                                <label for="zip">Zip</label>
+                                                <input class="form-control" id="zip" placeholder="" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="address">Address</label>
+                                            <input class="form-control" id="address" placeholder="1234 Main St" type="text">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="date">Date:</label>
+                                            <div class="input-group">
+                                                <input class="form-control" id="date" placeholder="2019/05/13" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="lighting">Lighting:</label>
+											<p class="mb-5">Choose the lighting conditions in which the accident occurred.</p>
+                                            <select class="form-control custom-select  mt-15" id="lighting">
+                                                <option value="1">Full day</option>
+                                                <option value="2">Twilight or dawn</option>
+                                                <option value="3">Night without public lighting</option>
+                                                <option value="4">Night with public lighting not lit</option>
+												<option value="5">Night with public lighting on</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="intersection">Type of Intersection:</label>
+                                            <select class="form-control custom-select  mt-15" id="intersection">
+                                                <option value="1">Out of intersection</option>
+                                                <option value="2">Intersection in X </option>
+                                                <option value="3">Intersection in T</option>
+                                                <option value="4"> Intersection in Y</option>
+												<option value="5">Intersection with more than 4 branches</option>
+												<option value="6">Giratory</option>
+												<option value="7">Place</option>
+												<option value="8">Level crossing </option>
+												<option value="9">Other intersection</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="atmospheric">Atmospheric conditions:</label>
+                                            <select class="form-control custom-select  mt-15" id="atmospheric">
+												<option value="1">Normal</option>
+												<option value="2">Light rain</option>
+												<option value="3">Heavy rain</option>
+												<option value="4">Snow - hail</option>
+												<option value="5">Fog - smoke</option>
+												<option value="6">Strong wind - storm</option>
+												<option value="7">Dazzling weather</option>
+												<option value="8">Cloudy weather</option>
+												<option value="9">Other</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="collision">Type of collision:</label>
+                                            <select class="form-control custom-select  mt-15" id="collision">
+												<option value="1">Two vehicles - frontal</option>
+												<option value="2">Two vehicles - from the rear</option>
+												<option value="3">Two vehicles - by the side</option>
+												<option value="4">Three vehicles and more - in chain</option>
+												<option value="5">Three or more vehicles - multiple collisions</option>
+												<option value="6">Other collision</option>
+												<option value="7">Without  collision</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="email">Email:</label>
+                                            <input class="form-control" id="email" placeholder="you@example.com" type="email">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="more">more information:</label>
+                                            <textarea class="form-control mt-15" rows="3" placeholder="more..." id="more"></textarea>
+                                        </div>
+
+                                        <hr>
+                                        <button class="btn btn-primary" type="submit">Upload</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!-- /Row -->
+            </div>
+            <!-- /Container -->
+
+            <!-- Footer -->
+            <div class="hk-footer-wrap container-fluid">
+                <footer class="footer">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <p>Pampered by<a href="http://www.bootstrapmb.com/" class="text-dark" target="_blank">Hencework</a> © 2019</p>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <p class="d-inline-block">Follow us</p>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- /Footer -->
+
+        </div>
+        <!-- /Main Content -->
+
+    </div>
+   <!-- /HK Wrapper -->
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Jasny-bootstrap  JavaScript -->
+    <script src="vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+
+    <!-- Slimscroll JavaScript -->
+    <script src="dist/js/jquery.slimscroll.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="dist/js/dropdown-bootstrap-extended.js"></script>
+
+    <!-- Ion JavaScript -->
+    <script src="vendors/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+    <script src="dist/js/rangeslider-data.js"></script>
+
+    <!-- Select2 JavaScript -->
+    <script src="vendors/select2/dist/js/select2.full.min.js"></script>
+    <script src="dist/js/select2-data.js"></script>
+
+    <!-- Bootstrap Tagsinput JavaScript -->
+    <script src="vendors/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+
+    <!-- Daterangepicker JavaScript -->
+    <script src="vendors/moment/min/moment.min.js"></script>
+    <script src="vendors/daterangepicker/daterangepicker.js"></script>
+    <script src="dist/js/daterangepicker-data.js"></script>
+
+    <!-- FeatherIcons JavaScript -->
+    <script src="dist/js/feather.min.js"></script>
+
+    <!-- Toggles JavaScript -->
+    <script src="vendors/jquery-toggles/toggles.min.js"></script>
+    <script src="dist/js/toggle-data.js"></script>
+
+    <!-- Init JavaScript -->
+    <script src="dist/js/init.js"></script>
+</body>
+
+</html>
