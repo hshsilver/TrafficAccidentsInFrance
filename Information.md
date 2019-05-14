@@ -40,8 +40,14 @@ Tasks|Duration|Check
 -|-|-
 Choose a dataset<br>Draw UML diagrams|1 week|Done
 Confirm the technology stack<br>Configure the environment|3 days|Done
+-- > Put yours ideeas here...
+
 Learn related knowledge|4 days|
+--> which knowledge?
+
 Data processing<br>Make GUI (The website)|2 weeks|
+---> Define better this tsk by adding sub-tasks
+
 Testing and Optimizing|1 week|
 Docs and PowerPoint Slides|3 days|
 **Total**|	**Around 38 days**|
