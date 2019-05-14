@@ -41,7 +41,9 @@ Tasks|Duration|Check
 Choose a dataset<br>Draw UML diagrams|1 week|Done
 Confirm the technology stack<br>Configure the environment|3 days|Done
 -- > Put yours ideeas here...
-
+	flask: to build back end.
+	bootstrap,jquery,html,css: to build the front end.
+	nginx,gunicorn: to deploy the project.
 Learn related knowledge|4 days|
 --> which knowledge?
 
