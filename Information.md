@@ -46,7 +46,8 @@ Confirm the technology stack<br>Configure the environment|3 days|Done
 	nginx,gunicorn: to deploy the project.
 Learn related knowledge|4 days|
 --> which knowledge?
-
+	sklearn：to build Machine Learning models
+	pandas：to process the dataset
 Data processing<br>Make GUI (The website)|2 weeks|
 ---> Define better this tsk by adding sub-tasks
 
