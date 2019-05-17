@@ -8,7 +8,7 @@ Name|Pinyin Name|English Name
 # Technology Stack  
  - Front-end
      - HTML+CSS+JavaScript
-     - AngularJS (TypeScript)
+     - Bootstraps
     - Echarts powered by Baidu
     - D3
     - GEOJSON
