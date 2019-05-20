@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from sklearn import cluster
 import matplotlib.pyplot as plt
+
 url1 = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//caracteristics.csv'
 url = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//target.csv'
 urlReal = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//targetReal.csv'
@@ -15,6 +16,7 @@ X_train=X[['lum', 'agg', 'int', 'atm','col', 'lat', 'long', 'catr', 'circ', 'vos
 #X_test=XT[['lum', 'agg', 'int', 'atm','col', 'lat', 'long', 'catr', 'circ', 'vosp','prof', 'plan', 'lartpc', 'larrout', 'surf', 'infra', 'situ', 'env1', 'killed']]
 k_means = cluster.KMeans(n_clusters=5)
 y_pred = k_means.fit_predict(X_train)
+
 fig = plt.figure()
 ax = fig.add_subplot(2, 2, 1)
 ax.scatter((X_train.values)[:,5], (X_train.values)[:,6], c=y_pred)
@@ -22,6 +24,7 @@ ax.set_xlabel("lat")
 ax.set_ylabel("long")
 ax.set_title("K-means")
 ax.legend(framealpha=0.5)
+
 '''
 ax1 = fig.add_subplot(2, 2, 2)
 ax1.scatter((X_train.values)[:,12], (X_train.values)[:,13], c=y_pred)
