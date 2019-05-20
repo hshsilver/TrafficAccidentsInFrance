@@ -7,3 +7,10 @@ Data analysis.
 	'Predicted_accuracyOrPredicted_number_of_deaths(Pca_data&initial_data).PNG' is graph of the accuracy of predicting the number of deaths and the number of predicted deaths using four models.
 	Calculate the option that has the most occurrences of each column in the 'caracteristics.csv' by 'calculate.py' (The result is in StatisticalData.txt)
 	Clusting by 'clusting.py'
+	
+	
+	
+	
+------>    Silhuette analysis
+
+http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html
