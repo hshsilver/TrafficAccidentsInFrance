@@ -3,14 +3,14 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn import decomposition
-url = 'C://Users//liuyang//Desktop//France//accidents-in-france-from-2005-to-2016//预处理//target.csv'
-urlReal = 'C://Users//liuyang//Desktop//France//accidents-in-france-from-2005-to-2016//预处理//targetReal.csv'
-url1 = 'C://Users//liuyang//Desktop//France//accidents-in-france-from-2005-to-2016//预处理//caracteristics.csv'
-url3 = 'C://Users//liuyang//Desktop//France//accidents-in-france-from-2005-to-2016//预处理//users.csv'
-url11 = 'C://Users//liuyang//Desktop//France//accidents-in-france-from-2005-to-2016//预处理//caracteristicsTest.csv'
-url33 = 'C://Users//liuyang//Desktop//France//accidents-in-france-from-2005-to-2016//预处理//usersTest.csv'
-urlP = 'C://Users//liuyang//Desktop//France//accidents-in-france-from-2005-to-2016//预处理//pca.csv'
-urlPT = 'C://Users//liuyang//Desktop//France//accidents-in-france-from-2005-to-2016//预处理//pcaT.csv'
+url = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//target.csv'
+urlReal = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//targetReal.csv'
+url1 = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//caracteristics.csv'
+url3 = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//users.csv'
+url11 = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//caracteristicsTest.csv'
+url33 = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//usersTest.csv'
+urlP = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//pca.csv'
+urlPT = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//pcaT.csv'
 num = 2
 df = pd.read_csv(url1,encoding="LATIN_1",low_memory=False)#iso8859_15
 X = np.array(df[['lum', 'agg', 'int', 'atm',
