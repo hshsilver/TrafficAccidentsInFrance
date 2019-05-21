@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+<div id="geo">
+    <h1>{{name}}</h1>
+    <p>Longitude: {{long}}</p>
+    <p>Latitude: {{lat}}</p>
+</div>
+<script>
+    new Vue({
+        el: '#geo',
+        data: {
+            name:"事故地点详情Details",
+            long:JSON.parse(localStorage.mylocation).lng,
+            lat:JSON.parse(localStorage.mylocation).lat
+        }
+    })
+</script>
+</body>
+</html>
