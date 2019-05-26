@@ -13,9 +13,7 @@ urlP = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLe
 urlPT = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//pcaT.csv'
 num = 2
 df = pd.read_csv(url1,encoding="LATIN_1",low_memory=False)#iso8859_15
-X = np.array(df[['lum', 'agg', 'int', 'atm',
-'col', 'com', 'lat', 'long', 'dep', 'catr', 'circ', 'nbv', 'vosp',
-'prof', 'plan', 'lartpc', 'larrout', 'surf', 'infra', 'situ', 'env1']])
+X = np.array(df[['lum', 'int', 'atm','col', 'catr', 'circ', 'nbv', 'vosp','prof', 'plan', 'lartpc', 'larrout', 'surf', 'infra', 'situ', 'env1']])
 pca = decomposition.PCA()
 pca.fit(X)
 print(pca.explained_variance_)
@@ -24,9 +22,7 @@ X_reduced = pca.fit_transform(X)
 pc = pd.DataFrame(X_reduced)
 pc.to_csv(urlP,encoding="LATIN_1",index=False)
 dfT = pd.read_csv(url11,encoding="LATIN_1",low_memory=False)#iso8859_15
-Y = np.array(dfT[['lum', 'agg', 'int', 'atm',
-'col', 'com', 'lat', 'long', 'dep', 'catr', 'circ', 'nbv', 'vosp',
-'prof', 'plan', 'lartpc', 'larrout', 'surf', 'infra', 'situ', 'env1']])
+Y = np.array(dfT[['lum', 'int', 'atm','col', 'catr', 'circ', 'nbv', 'vosp','prof', 'plan', 'lartpc', 'larrout', 'surf', 'infra', 'situ', 'env1']])
 pcaT = decomposition.PCA()
 pcaT.fit(Y)
 print(pcaT.explained_variance_)
