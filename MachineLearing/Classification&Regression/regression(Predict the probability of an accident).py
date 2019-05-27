@@ -1,13 +1,12 @@
 # coding: utf-8
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 from sklearn import decomposition
 from sklearn import linear_model
 from sklearn.externals import joblib
 from sklearn import svm
-from sklearn import tree
 from sklearn.neural_network import MLPRegressor
+from sklearn.metrics import mean_squared_error
 url = 'target.csv'
 urlReal = 'targetReal.csv'
 urlT = 'targetRegTest.csv'
@@ -21,21 +20,18 @@ def Regression():
 	X_train=X[['lum', 'int', 'atm','col', 'catr', 'circ', 'nbv', 'vosp','prof', 'plan', 'lartpc', 'larrout', 'surf', 'infra', 'situ', 'env1']]
 	Y_train=X['chance']
 	X_test=XT[['lum', 'int', 'atm','col', 'catr', 'circ', 'nbv', 'vosp','prof', 'plan', 'lartpc', 'larrout', 'surf', 'infra', 'situ', 'env1']]
-	reg = linear_model.LinearRegression()
-	#reg = linear_model.Ridge(alpha=0.5)
-	#reg = linear_model.Lasso(alpha=0.1)
-	#reg = linear_model.LassoLars(alpha=0.5)
-	#reg = linear_model.BayesianRidge()
-	##reg = svm.SVR(gamma='scale')
-	##reg = linear_model.SGDRegressor(max_iter=1000, tol=1e-3)
-	#reg = tree.DecisionTreeRegressor()
-	#reg = MLPRegressor(activation='logistic')
+	Y_test=XT['chance']
+	#reg = linear_model.LinearRegression()	#0.022112666330325707
+	#reg = linear_model.BayesianRidge()		#0.022112934511271203
+	#reg = svm.SVR(gamma='scale')			#0.004849921086918859
+	reg = MLPRegressor(activation='logistic')#0.0003363074218161884
 	reg.fit(X_train,Y_train)
 	Z=reg.predict(X_test)
 	pd_data = pd.DataFrame(Z,columns=['chance'])
 	print(pd_data)
 	pd_data.to_csv(urlT,encoding="LATIN_1",index=False)
 	joblib.dump(reg,'Regression.model')
+	print(mean_squared_error(Y_test,pd_data))
 def process():
 	num = 7
 	df = pd.read_csv(url1,encoding="LATIN_1",low_memory=False)#iso8859_15
