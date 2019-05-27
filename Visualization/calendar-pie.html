@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 80%"></div>
+<div id="button" style="height:20%">
+    <button id="ajax">test</button>
+    <input id="month" type="month" value="2015-09" min="2005-01" max="2016-12"/>
+    <div id="result"></div>
+</div>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>-->
+<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>-->
+<!--<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>-->
+<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>-->
+<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>-->
+<script>
+    new Vue({
+        el: '#button',
+        data: {
+            name: "事故地点详情Details",
+            long: JSON.parse(localStorage.mylocation).lng,
+            lat: JSON.parse(localStorage.mylocation).lat,
+        }
+    })
+</script>
+<script type="text/javascript">
+    var mydate = document.getElementById("month");
+    console.log(mydate.value)
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    var cellSize = [80, 80];
+    var pieRadius = 30;
+
+    function getVirtulData() {
+        var date = +echarts.number.parseDate('2017-02-01');
+        var end = +echarts.number.parseDate('2017-03-01');
+        var dayTime = 3600 * 24 * 1000;
+        var data = [];
+        for (var time = date; time < end; time += dayTime) {
+            data.push([
+                echarts.format.formatTime('yyyy-MM-dd', time),
+                Math.floor(Math.random() * 10000)
+            ]);
+        }
+        console.log(data);
+        return data;
+    }
+
+    function getPieSeries(scatterData, chart) {
+        return echarts.util.map(scatterData, function (item, index) {
+            var center = chart.convertToPixel('calendar', item);
+            return {
+                id: index + 'pie',
+                type: 'pie',
+                center: center,
+                label: {
+                    normal: {
+                        formatter: '{c}',
+                        position: 'inside'
+                    }
+                },
+                radius: pieRadius,
+                data: [
+                    {name: '工作', value: Math.round(Math.random() * 24)},
+                    {name: '娱乐', value: Math.round(Math.random() * 24)},
+                    {name: '睡觉', value: Math.round(Math.random() * 24)}
+                ]
+            };
+        });
+    }
+
+    function getPieSeries_test(scatterData, chart) {
+        return echarts.util.map(scatterData, function (item, index) {
+            var center = chart.convertToPixel('calendar', item);
+            return {
+                id: index + 'pie',
+                type: 'pie',
+                center: center,
+                label: {
+                    normal: {
+                        formatter: '{c}',
+                        position: 'inside'
+                    }
+                },
+                radius: pieRadius,
+                data: [
+                    {name: '工作', value: 12},
+                    {name: '娱乐', value: 12},
+                    {name: '睡觉', value: Math.round(Math.random() * 24)}
+                ]
+            };
+        });
+    }
+
+
+    function getPieSeriesUpdate(scatterData, chart) {
+        return echarts.util.map(scatterData, function (item, index) {
+            var center = chart.convertToPixel('calendar', item);
+            return {
+                id: index + 'pie',
+                center: center
+            };
+        });
+    }
+
+    var scatterData = getVirtulData();
+
+    option = {
+        tooltip: {},
+        legend: {
+            data: ['工作', '娱乐', '睡觉'],
+            bottom: 20
+        },
+        calendar: {
+            top: 'middle',
+            left: 'center',
+            orient: 'vertical',
+            cellSize: cellSize,
+            yearLabel: {
+                show: false,
+                textStyle: {
+                    fontSize: 30
+                }
+            },
+            dayLabel: {
+                margin: 20,
+                firstDay: 1,
+                nameMap: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+            },
+            monthLabel: {
+                show: false
+            },
+            range: ['2017-02']
+        },
+        series: [{
+            id: 'label',
+            type: 'scatter',
+            coordinateSystem: 'calendar',
+            symbolSize: 1,
+            label: {
+                normal: {
+                    show: true,
+                    formatter: function (params) {
+                        return echarts.format.formatTime('dd', params.value[0]);
+                    },
+                    offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
+                    textStyle: {
+                        color: '#000',
+                        fontSize: 14
+                    }
+                }
+            },
+            data: scatterData
+        }]
+    };
+
+    if (!app.inNode) {
+        var pieInitialized;
+        setTimeout(function () {
+            pieInitialized = true;
+            myChart.setOption({
+                series: getPieSeries(scatterData, myChart)
+            });
+        }, 10);
+
+        app.onresize = function () {
+            if (pieInitialized) {
+                myChart.setOption({
+                    series: getPieSeriesUpdate(scatterData, myChart)
+                });
+            }
+        };
+    }
+    ;
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+
+    var return_data;
+    // var series_test={
+    //     id: index + 'pie',
+    //     type: 'pie',
+    //     center: center,
+    //     label: {
+    //         normal: {
+    //             formatter: '{c}',
+    //             position: 'inside'
+    //         }
+    //     },
+    //     radius: pieRadius,
+    //     data: [
+    //         {name: '工作', value: 12},
+    //         {name: '娱乐', value: Math.round(Math.random() * 24)},
+    //         {name: '睡觉', value: Math.round(Math.random() * 24)}
+    //     ]
+    // };
+    $(function(){
+        $('#month').bind('input propertychange', function() {
+            $('#result').html($(this).val());
+            // option.legend.data=['工作', '娱乐', '睡觉']
+            console.log(option)
+            // option.series[0].data=[
+            //     {name: '工作', value: 12},
+            //     {name: '娱乐', value: 12},
+            //     {name: '睡觉', value: 12}
+            // ]
+            // console.log(option)
+            myChart.setOption({
+                series: getPieSeries_test(scatterData, myChart)
+            });
+            // myChart.setOption(option, false);
+
+
+        });
+        $('#ajax').click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://108.160.131.50:2500',
+                data: {
+                    "type": 1
+                },
+                success: function(data) {
+                    return_data = $.parseJSON(data);
+                    console.log(return_data); //json格式
+                },
+            });
+        })
+
+    });
+</script>
+</body>
+</html>
