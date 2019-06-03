@@ -7,9 +7,10 @@
 </head>
 <body style="height: 100%; margin: 0">
 <div id="container" style="height: 80%"></div>
-<div id="button" style="height:20%">
+<div id="button" style="height:20%;text-align: center">
     <button id="ajax">test</button>
-    <input id="month" type="month" value="2015-09" min="2005-01" max="2016-12"/>
+    <button id="ajax2">test2</button>
+    <input id="month" style="height: 40px;font-size: x-large " type="month" value="2016-01" min="2005-01" max="2016-12"/>
     <div id="result"></div>
 </div>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
@@ -35,6 +36,7 @@
 <script type="text/javascript">
     var mydate = document.getElementById("month");
     console.log(mydate.value)
+
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
     var app = {};
@@ -43,17 +45,56 @@
     var pieRadius = 30;
 
     function getVirtulData() {
-        var date = +echarts.number.parseDate('2017-02-01');
-        var end = +echarts.number.parseDate('2017-03-01');
+        var date = +echarts.number.parseDate('2016-01-01');
+        var end = +echarts.number.parseDate('2016-02-01');
         var dayTime = 3600 * 24 * 1000;
         var data = [];
         for (var time = date; time < end; time += dayTime) {
             data.push([
                 echarts.format.formatTime('yyyy-MM-dd', time),
-                Math.floor(Math.random() * 10000)
+                Math.floor(Math.random() * 10)
             ]);
         }
         console.log(data);
+        return data;
+    }
+
+    var month_str="2016-01";
+    // console.log(month_str+'-01');
+    function myGetDays(year, month){
+        var d = new Date(year, month, 0);
+        return d.getDate();
+    }
+    // var totalDay = myGetDays(2016,2);   //
+    // console.log(totalDay)
+    function getTrueData(month) {
+        // month = "2018-02";
+        var y=month.substring(0,4);
+        var m=month.substring(5,7);
+        var m_next;
+        if(m==12){
+            y=parseInt(y)+1;
+            m_next=1;
+        }else{
+            m_next=parseInt(m)+1;
+        }
+        console.log(y,m,m_next)
+        var month_next = y+"-"+m_next
+        var date = +echarts.number.parseDate(month+'-01');
+        var end = +echarts.number.parseDate(month_next+'-01');
+        console.log(date,end);
+        console.log("?")
+        var dayTime = 3600 * 24 * 1000;
+        var data = [];
+        console.log("??")
+        for (var time = date; time < end; time += dayTime) {
+            console.log("???");
+            data.push([
+                echarts.format.formatTime('yyyy-MM-dd', time),
+                Math.floor(Math.random() * 10)//没有什么用的数据。测试使用！
+            ]);
+        }
+        console.log(data,"????");
         return data;
     }
 
@@ -72,17 +113,47 @@
                 },
                 radius: pieRadius,
                 data: [
-                    {name: '工作', value: Math.round(Math.random() * 24)},
-                    {name: '娱乐', value: Math.round(Math.random() * 24)},
-                    {name: '睡觉', value: Math.round(Math.random() * 24)}
+                    {name: 'Death', value: Math.round(Math.random() * 24)},
+                    {name: 'Hospital', value: Math.round(Math.random() * 24)},
+                    {name: 'Light', value: Math.round(Math.random() * 24)},
+                    {name: 'Unscathed', value: Math.round(Math.random() * 24)}
                 ]
             };
         });
     }
 
-    function getPieSeries_test(scatterData, chart) {
+    // function getPieSeries_test(scatterData, chart) {
+    //     return echarts.util.map(scatterData, function (item, index) {
+    //         var center = chart.convertToPixel('calendar', item);
+    //         return {
+    //             id: index + 'pie',
+    //             type: 'pie',
+    //             center: center,
+    //             label: {
+    //                 normal: {
+    //                     formatter: '{c}',
+    //                     position: 'inside'
+    //                 }
+    //             },
+    //             radius: pieRadius,
+    //             data: [
+    //                 {name: '工作', value: 12},
+    //                 {name: '娱乐', value: 12},
+    //                 {name: '睡觉', value: Math.round(Math.random() * 24)}
+    //             ]
+    //         };
+    //     });
+    // }
+
+    function getTruePieSeries(scatterData, chart, month) {
+        var data_month_detail = getTrueDayData(month)
+        console.log("?！")
+
         return echarts.util.map(scatterData, function (item, index) {
             var center = chart.convertToPixel('calendar', item);
+            // console.log(index);
+            var day_data = data_month_detail.data[index];
+            // console.log(day_data)
             return {
                 id: index + 'pie',
                 type: 'pie',
@@ -95,14 +166,54 @@
                 },
                 radius: pieRadius,
                 data: [
-                    {name: '工作', value: 12},
-                    {name: '娱乐', value: 12},
-                    {name: '睡觉', value: Math.round(Math.random() * 24)}
+                    {name: 'Death', value: day_data[0]},
+                    {name: 'Hospital', value: day_data[1]},
+                    {name: 'Light', value: day_data[2]},
+                    {name: 'Unscathed', value: day_data[3]}
                 ]
             };
         });
     }
 
+    function getTrueDayData(mnonth){
+        // var data ={
+        //     "data":[[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],
+        //         [1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],
+        //         [1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],
+        //         [1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4],
+        //         [1,2,3,4],[1,2,3,4],[1,2,3,4]
+        //     ]
+        // }
+        // var return_data ={
+        //     "data": [
+        //         [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0],
+        //         [0, 0, 0, 0], [0, 0, 0, 0], [53, 7, 40, 45], [46, 6, 37, 25], [41, 2, 18, 41], [52, 2, 31, 39], [53, 7, 37, 33],
+        //         [49, 8, 43, 32], [89, 9, 37, 87], [63, 10, 50, 48], [47, 5, 36, 50], [56, 4, 26, 47], [87, 2, 22, 60], [57, 4, 23, 37],
+        //         [120, 5, 37, 51], [64, 6, 42, 80], [41, 5, 33, 42], [44, 6, 60, 44], [56, 4, 37, 35], [53, 4, 32, 50], [63, 4, 39, 60],
+        //         [41, 2, 29, 29], [56, 9, 35, 47], [56, 9, 35, 47]
+        //     ]
+        // }
+        var return_data = {'data': [[60, 7, 58, 61], [118, 5, 48, 92], [48, 3, 31, 70], [96, 7, 47, 91], [114, 5, 52, 105], [110, 8, 43, 87], [140, 10, 50, 101], [130, 5, 78, 116], [112, 4, 61, 98], [66, 4, 53, 75], [86, 7, 45, 77], [122, 13, 55, 104], [103, 6, 51, 76], [125, 8, 64, 124], [123, 6, 68, 97], [94, 10, 54, 92], [46, 6, 26, 47], [82, 4, 32, 87], [81, 2, 39, 78], [100, 4, 26, 89], [136, 5, 55, 116], [107, 6, 64, 98], [78, 6, 58, 91], [85, 5, 45, 72], [95, 3, 34, 91], [90, 4, 39, 71], [95, 5, 47, 88], [123, 8, 45, 117], [92, 9, 42, 77], [97, 6, 43, 86], [91, 4, 46, 115]]}
+        $.ajax({
+            type: 'POST',
+            url: 'http://fr.hshsilver.com/month',
+            data: {
+                // "type": 'yearmonth',
+                "date": month_str
+            },
+            success: function(data) {
+                console.log(data)
+                // data_temp = $.parseJSON(data);
+                // console.log(data_temp)
+                return_data = $.parseJSON(data);
+                console.log(return_data); //json格式
+            },
+        });
+
+
+        //此处需要补充动态获取的内容。
+        return return_data
+    }
 
     function getPieSeriesUpdate(scatterData, chart) {
         return echarts.util.map(scatterData, function (item, index) {
@@ -114,12 +225,16 @@
         });
     }
 
-    var scatterData = getVirtulData();
+    // var scatterData = getVirtulData();
+    var scatterData = getTrueData(month_str);
+    console.log(scatterData)
+    //T:getTrueData
+
 
     option = {
         tooltip: {},
         legend: {
-            data: ['工作', '娱乐', '睡觉'],
+            data: ['Death', 'Hospital', 'Light','Unscathed'],
             bottom: 20
         },
         calendar: {
@@ -136,12 +251,12 @@
             dayLabel: {
                 margin: 20,
                 firstDay: 1,
-                nameMap: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+                nameMap: ['Sun.', 'Mon.', 'Tues.', 'Wed.', 'Thur.', 'Fri.', 'Sat.']
             },
             monthLabel: {
                 show: false
             },
-            range: ['2017-02']
+            range: ['2016-01']
         },
         series: [{
             id: 'label',
@@ -166,13 +281,16 @@
     };
 
     if (!app.inNode) {
+        scatterData = getTrueData(month_str);
         var pieInitialized;
+        console.log("T:getTruePieSeries");
         setTimeout(function () {
             pieInitialized = true;
             myChart.setOption({
-                series: getPieSeries(scatterData, myChart)
+                series: getTruePieSeries(scatterData, myChart,month_str)
             });
         }, 10);
+        // console.log("T:getTruePieSeries");
 
         app.onresize = function () {
             if (pieInitialized) {
@@ -188,52 +306,121 @@
     }
 
     var return_data;
-    // var series_test={
-    //     id: index + 'pie',
-    //     type: 'pie',
-    //     center: center,
-    //     label: {
-    //         normal: {
-    //             formatter: '{c}',
-    //             position: 'inside'
-    //         }
-    //     },
-    //     radius: pieRadius,
-    //     data: [
-    //         {name: '工作', value: 12},
-    //         {name: '娱乐', value: Math.round(Math.random() * 24)},
-    //         {name: '睡觉', value: Math.round(Math.random() * 24)}
-    //     ]
-    // };
     $(function(){
         $('#month').bind('input propertychange', function() {
-            $('#result').html($(this).val());
-            // option.legend.data=['工作', '娱乐', '睡觉']
-            console.log(option)
-            // option.series[0].data=[
-            //     {name: '工作', value: 12},
-            //     {name: '娱乐', value: 12},
-            //     {name: '睡觉', value: 12}
-            // ]
+            month_str=$(this).val();
+            $('#result').html(month_str);
             // console.log(option)
-            myChart.setOption({
-                series: getPieSeries_test(scatterData, myChart)
-            });
-            // myChart.setOption(option, false);
+            //
+            // var pieInitialized;
+            // setTimeout(function () {
+            //     pieInitialized = true;
+            //     scatterData = getTrueData(month_str);
+            //     console.log("!")
+            //     var temps = getTruePieSeries(scatterData, myChart,month_str)
+            //     myChart.setOption({
+            //         series: temps
+            //     });
+            // }, 10);
+            // // myChart.setOption(option, true);
+            scatterData = getTrueData(month_str);
+            // myChart.clear();
+            setTimeout(function () {
 
+                myChart.setOption(
+                    {
+                        tooltip: {},
+                        legend: {
+                            data: ['Death', 'Hospital', 'Light','Unscathed'],
+                            bottom: 20
+                        },
+                        calendar: {
+                            top: 'middle',
+                            left: 'center',
+                            orient: 'vertical',
+                            cellSize: cellSize,
+                            yearLabel: {
+                                show: false,
+                                textStyle: {
+                                    fontSize: 30
+                                }
+                            },
+                            dayLabel: {
+                                margin: 20,
+                                firstDay: 1,
+                                nameMap: ['Sun.', 'Mon.', 'Tues.', 'Wed.', 'Thur.', 'Fri.', 'Sat.']
+                            },
+                            monthLabel: {
+                                show: false
+                            },
+                            range: [month_str]
+                        },
+                        series: [{
+                            id: 'label',
+                            type: 'scatter',
+                            coordinateSystem: 'calendar',
+                            symbolSize: 1,
+                            label: {
+                                normal: {
+                                    show: true,
+                                    formatter: function (params) {
+                                        return echarts.format.formatTime('dd', params.value[0]);
+                                    },
+                                    offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
+                                    textStyle: {
+                                        color: '#000',
+                                        fontSize: 14
+                                    }
+                                }
+                            },
+                            data: scatterData
+                        }]
+                    }
+                );
+            }, 10);
+
+            myChart.setOption({
+                series: getTruePieSeries(scatterData, myChart,month_str)
+            });
+            myChart.setOption({
+                series: getPieSeriesUpdate(scatterData, myChart)
+            });
+
+            console.log("T:getTruePieSeries");
+
+            // app.onresize = function () {
+            //     if (pieInitialized) {
+            //         myChart.setOption({
+            //             series: getPieSeriesUpdate(scatterData, myChart)
+            //         });
+            //     }
+            // };
 
         });
+        // var data_temp
         $('#ajax').click(function(){
             $.ajax({
                 type: 'POST',
-                url: 'http://108.160.131.50:2500',
+                url: 'http://fr.hshsilver.com/month',
                 data: {
-                    "type": 1
+                    // "type": 'yearmonth',
+                    "date": month_str
                 },
                 success: function(data) {
+                    console.log(data)
+                    // data_temp = $.parseJSON(data);
+                    // console.log(data_temp)
                     return_data = $.parseJSON(data);
                     console.log(return_data); //json格式
+
                 },
+            });
+        })
+        $("#ajax2").click(function(){
+            $.getJSON("questions/questions.json", function(data) {
+                // game.questions = data;
+                // game.updates();
+                console.log(data);
             });
         })
 
