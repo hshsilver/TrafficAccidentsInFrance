@@ -3,11 +3,11 @@ import pandas as pd
 from sklearn import cluster
 import matplotlib.pyplot as plt
 
-url = 'C://Users//liuyang//Desktop//France//TrafficAccidentsInFrance//MachineLearing//pca.csv'
+url = 'pca.csv'
 
 X = pd.read_csv(url,encoding="LATIN_1",low_memory=False)#iso8859_15
 X_train=X
-k_means = cluster.KMeans(n_clusters=4)
+k_means = cluster.KMeans(n_clusters=3)
 y_pred = k_means.fit_predict(X_train)
 
 fig = plt.figure()
