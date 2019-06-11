@@ -1,12 +1,5 @@
 ﻿<!DOCTYPE html>
-<!-- 
-Template Name: Griffin - Responsive Bootstrap 4 Admin Dashboard Template
-Author: Hencework
-Support: support@hencework.com
-
-License: You must have a valid license purchased only from templatemonster to legally use the template for your project.
--->
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8" />
@@ -17,15 +10,15 @@ License: You must have a valid license purchased only from templatemonster to le
     <!-- Favicon -->
     <link rel="shortcut icon" href="dist/img/logo_1.png">
     <link rel="icon" href="dist/img/logo_1.png" type="image/x-icon">
-	
-	<!-- Morris Charts CSS -->
+
+    <!-- Morris Charts CSS -->
     <link href="vendors/morris.js/morris.css" rel="stylesheet" type="text/css" />
-	
+
     <!-- Toggles CSS -->
     <link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
     <link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
-	
-	<!-- Toastr CSS -->
+
+    <!-- Toastr CSS -->
     <link href="vendors/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
@@ -38,9 +31,9 @@ License: You must have a valid license purchased only from templatemonster to le
         <div class="loader-pendulums"></div>
     </div>
     <!-- /Preloader -->
-	
-	<!-- HK Wrapper -->
-	<div class="hk-wrapper hk-alt-nav">
+
+    <!-- HK Wrapper -->
+    <div class="hk-wrapper hk-alt-nav">
 
         <!-- Top Navbar -->
         <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt">
@@ -51,14 +44,15 @@ License: You must have a valid license purchased only from templatemonster to le
             <div class="collapse navbar-collapse" id="navbarCollapseAlt">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html" >Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown show-on-hover">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Predict
 							</a>
                         <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                            <a class="dropdown-item" href="predicts.html">Predicts</a>
+                            <a class="dropdown-item" href="deaths.html">Deaths</a>
+                            <a class="dropdown-item" href="probability.html">Probability</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown show-on-hover active">
@@ -66,22 +60,23 @@ License: You must have a valid license purchased only from templatemonster to le
 								Visualization
 							</a>
                         <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-							<a class="dropdown-item active" href="analysis.html">Analysis</a>
-							<a class="dropdown-item" href="map.html">Map</a>
+                            <a class="dropdown-item active" href="analysis.html">Analysis</a>
+                            <a class="dropdown-item" href="map.html">Map</a>
+                            <a class="dropdown-item" href="heatmap.html">Heat Map</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="upload.html" >Upload</a>
+                        <a class="nav-link" href="upload.html">Upload</a>
                     </li>
                 </ul>
             </div>
             <ul class="navbar-nav hk-navbar-content">
                 <li class="nav-item dropdown dropdown-authentication">
-					<a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i data-feather="settings"></i></span></a>
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i data-feather="settings"></i></span></a>
                     <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                        <h6 class="dropdown-item"><a href="javascript:void(0);" class="">English</a></h6>
-						<h6 class="dropdown-item"><a href="javascript:void(0);" class="">Franch</a></h6>
-						<h6 class="dropdown-item"><a href="javascript:void(0);" class="">Chinese</a></h6>
+                        <h6 class="dropdown-item" id="langEN"><a lang href="#" class="">English</a></h6>
+                        <h6 class="dropdown-item" id="langFR"><a lang href="#" class="">Franch</a></h6>
+                        <h6 class="dropdown-item" id="langCN"><a lang href="#" class="">Chinese</a></h6>
                     </div>
                 </li>
             </ul>
@@ -95,222 +90,17 @@ License: You must have a valid license purchased only from templatemonster to le
                 <ol class="breadcrumb breadcrumb-light bg-transparent">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item">Visualization</li>
-					<li class="breadcrumb-item active" aria-current="page">Analysis</li>
+                    <li class="breadcrumb-item active" aria-current="page">Analysis</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
-			<!-- Container -->
+            <!-- Container -->
             <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
-               <!-- Row -->
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hk-row">
-							<div class="col-lg-3 col-sm-6">
-								<div class="card card-sm">
-									<div class="card-body">
-										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">regions</span>
-										<div class="d-flex align-items-center justify-content-between position-relative">
-											<div>
-												<span class="d-block display-5 font-weight-400 text-dark">36+</span>
-											</div>
-											<div class="position-absolute r-0">
-												<span id="pie_chart_1" class="d-flex easy-pie-chart" data-percent="86">
-													<span class="percent head-font">86</span>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-								<div class="card card-sm">
-									<div class="card-body">
-										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Accident Number</span>
-										<div class="d-flex align-items-center justify-content-between position-relative">
-											<div>
-												<span class="d-block">
-													<span class="display-5 font-weight-400 text-dark"><span class="counter-anim">240,260</span></span>
-												</span>
-											</div>
-											<div class="position-absolute r-0">
-												<span id="pie_chart_2" class="d-flex easy-pie-chart" data-percent="75">
-													<span class="percent head-font">36</span>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-								<div class="card card-sm">
-									<div class="card-body">
-										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Injured People</span>
-										<div class="d-flex align-items-end justify-content-between">
-											<div>
-												<span class="d-block">
-													<span class="display-5 font-weight-400 text-dark">28,725</span>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-								<div class="card card-sm">
-									<div class="card-body">
-										<span class="d-block font-11 font-weight-500 text-dark text-uppercase mb-10">Inured Vehicles</span>
-										<div class="d-flex align-items-end justify-content-between">
-											<div>
-												<span class="d-block">
-													<span class="display-5 font-weight-400 text-dark">34,510</span>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="hk-row">
-							<div class="col-lg-6">
-								<div class="card">
-									<div class="card-header card-header-action">
-										<h6>Severity of the accident</h6>
-										<div class="d-flex align-items-center card-action-wrap">
-											<div class="inline-block dropdown">
-												<a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item" href="#">Action</a>
-													<a class="dropdown-item" href="#">Another action</a>
-													<a class="dropdown-item" href="#">Something else here</a>
-													<div class="dropdown-divider"></div>
-													<a class="dropdown-item" href="#">Separated link</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="hk-legend-wrap mb-20">
-											<div class="hk-legend">
-												<span class="d-10 bg-indigo-light-3 rounded-circle d-inline-block"></span><span>Unscathed</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-indigo-light-2 rounded-circle d-inline-block"></span><span>Light injury</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-indigo-light-1 rounded-circle d-inline-block"></span><span>Hospitalized wounded</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>Killed</span>
-											</div>
-										</div>
-										<div id="e_chart_9" class="echart" style="height:291px;"></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="card">
-									<div class="card-header card-header-action">
-										<h6>User category</h6>
-										<div class="d-flex align-items-center card-action-wrap">
-											<div class="inline-block dropdown">
-												<a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item" href="#">Action</a>
-													<a class="dropdown-item" href="#">Another action</a>
-													<a class="dropdown-item" href="#">Something else here</a>
-													<div class="dropdown-divider"></div>
-													<a class="dropdown-item" href="#">Separated link</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="hk-legend-wrap mb-20">
-											<div class="hk-legend">
-												<span class="d-10 bg-indigo-light-3 rounded-circle d-inline-block"></span><span>Driver</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-indigo-light-2 rounded-circle d-inline-block"></span><span>Passenger</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-indigo-light-1 rounded-circle d-inline-block"></span><span>Pedestrian</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>Pedestrian in rollerblade or scooter</span>
-											</div>
-										</div>
-										<div id="e_chart_10" class="echart" style="height:291px;"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="hk-row">
-							<div class="col-lg-8">
-								<div class="card card-refresh">
-									<div class="refresh-container">
-										<div class="loader-pendulums"></div>
-									</div>
-									<div class="card-header card-header-action">
-										<h6>Accident Visualization</h6>
-										<div class="d-flex align-items-center card-action-wrap">
-											<a href="#" class="inline-block refresh mr-15">
-												<i class="ion ion-md-radio-button-off"></i>
-											</a>
-											<a href="#" class="inline-block full-screen">
-												<i class="ion ion-md-expand"></i>
-											</a>
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="hk-legend-wrap mb-20">
-											<div class="hk-legend">
-												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>Driver</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-indigo-light-3 rounded-circle d-inline-block"></span><span>Passenger</span>
-											</div>
-										</div>
-										<div id="e_chart_3" class="echart" style="height: 350px;"></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="card">
-									<div class="card-header card-header-action">
-										<h6>road's gradient & Risk</h6>
-										<div class="d-flex align-items-center card-action-wrap">
-											<div class="toggle toggle-sm toggle-simple toggle-light toggle-bg-primary risk-switch"></div>
-										</div>
-									</div>
-									<div class="card-body">
-										<div id="e_chart_1" class="" style="height:325px;"></div>
-										<div class="hk-legend-wrap mt-20 mb-5">
-											<div class="hk-legend">
-												<span class="d-10 bg-indigo-light-1 rounded-circle d-inline-block"></span><span>Slope</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-primary rounded-circle d-inline-block"></span><span>Hilltop</span>
-											</div>
-										</div>
-										<div class="hk-legend-wrap">
-											<div class="hk-legend">
-												<span class="d-10 bg-indigo-light-2 rounded-circle d-inline-block"></span><span>Hill bottom</span>
-											</div>
-											<div class="hk-legend">
-												<span class="d-10 bg-indigo-light-3 rounded-circle d-inline-block"></span><span>Dish</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-                </div>
+                <iframe id='result' src="scatter-punchCard.html" width="100%" height="700px" scrolling="no"></iframe>
                 <!-- /Row -->
             </div>
             <!-- /Container -->
-			
+
             <!-- Footer -->
             <div class="hk-footer-wrap container-fluid">
                 <footer class="footer">
@@ -338,53 +128,40 @@ License: You must have a valid license purchased only from templatemonster to le
     <script src="vendors/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Slimscroll JavaScript -->
     <script src="dist/js/jquery.slimscroll.js"></script>
 
-    <!-- Fancy Dropdown JS -->
-    <script src="dist/js/dropdown-bootstrap-extended.js"></script>
+
 
     <!-- FeatherIcons JavaScript -->
     <script src="dist/js/feather.min.js"></script>
 
     <!-- Toggles JavaScript -->
     <script src="vendors/jquery-toggles/toggles.min.js"></script>
-    <script src="dist/js/toggle-data.js"></script>
-	
-	<!-- Toastr JS -->
+
+
+    <!-- Toastr JS -->
     <script src="vendors/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-    
-	<!-- Counter Animation JavaScript -->
-	<script src="vendors/waypoints/lib/jquery.waypoints.min.js"></script>
-	<script src="vendors/jquery.counterup/jquery.counterup.min.js"></script>
-	
-	<!-- Morris Charts JavaScript -->
-    <script src="vendors/raphael/raphael.min.js"></script>
-    <script src="vendors/morris.js/morris.min.js"></script>
-	
-	<!-- Easy pie chart JS -->
+
+    <!-- Counter Animation JavaScript -->
+    <script src="vendors/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="vendors/jquery.counterup/jquery.counterup.min.js"></script>
+
+
+
+    <!-- Easy pie chart JS -->
     <script src="vendors/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-	
-	<!-- Flot Charts JavaScript -->
-    <script src="vendors/flot/excanvas.min.js"></script>
-    <script src="vendors/flot/jquery.flot.js"></script>
-    <script src="vendors/flot/jquery.flot.pie.js"></script>
-    <script src="vendors/flot/jquery.flot.resize.js"></script>
-    <script src="vendors/flot/jquery.flot.time.js"></script>
-    <script src="vendors/flot/jquery.flot.stack.js"></script>
-    <script src="vendors/flot/jquery.flot.crosshair.js"></script>
-    <script src="vendors/jquery.flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-	
-	<!-- EChartJS JavaScript -->
+
+    <!-- EChartJS JavaScript -->
     <script src="vendors/echarts/dist/echarts-en.min.js"></script>
-    
+
     <!-- Init JavaScript -->
     <script src="dist/js/init.js"></script>
-	<script src="dist/js/dashboard2-data.js"></script>
-	
+    <script src="dist/js/dashboard2-data.js"></script>
+
 </body>
 
 </html>

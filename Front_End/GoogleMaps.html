@@ -1,0 +1,513 @@
+<html>
+<!--<style type="txt/css">-->
+<!--html {height:100%}-->
+<!--body {height:100%;margin:0;padding:0}-->
+<!--#googleMap {height:100%}-->
+<!--</style>-->
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://kit.fontawesome.com/9005638769.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD41X7x5QV4_4_aSnLM6CB7egXhvSV3QGM&language=zh-CN&sensor=true">
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            var myCenter = new google.maps.LatLng(46.867642, 2.424957);
+            var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+            var image2 = 'pictures/round.png';
+            var image3 = 'pictures/orange2.png';
+
+            function initialize() {
+                var mapProp = {
+                    center: new google.maps.LatLng(46.867642, 2.424957),
+                    zoom: 5.5,
+                    disableDefaultUI: false,
+                    mapTypeId: google.maps.MapTypeId.TERRAIN,
+                    // styles: [
+                    //     {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+                    //     {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+                    //     {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+                    //     {
+                    //         featureType: 'administrative.locality',
+                    //         elementType: 'labels.text.fill',
+                    //         stylers: [{color: '#d59563'}]
+                    //     },
+                    //     {
+                    //         featureType: 'poi',
+                    //         elementType: 'labels.text.fill',
+                    //         stylers: [{color: '#d59563'}]
+                    //     },
+                    //     {
+                    //         featureType: 'poi.park',
+                    //         elementType: 'geometry',
+                    //         stylers: [{color: '#263c3f'}]
+                    //     },
+                    //     {
+                    //         featureType: 'poi.park',
+                    //         elementType: 'labels.text.fill',
+                    //         stylers: [{color: '#6b9a76'}]
+                    //     },
+                    //     {
+                    //         featureType: 'road',
+                    //         elementType: 'geometry',
+                    //         stylers: [{color: '#38414e'}]
+                    //     },
+                    //     {
+                    //         featureType: 'road',
+                    //         elementType: 'geometry.stroke',
+                    //         stylers: [{color: '#212a37'}]
+                    //     },
+                    //     {
+                    //         featureType: 'road',
+                    //         elementType: 'labels.text.fill',
+                    //         stylers: [{color: '#9ca5b3'}]
+                    //     },
+                    //     {
+                    //         featureType: 'road.highway',
+                    //         elementType: 'geometry',
+                    //         stylers: [{color: '#746855'}]
+                    //     },
+                    //     {
+                    //         featureType: 'road.highway',
+                    //         elementType: 'geometry.stroke',
+                    //         stylers: [{color: '#1f2835'}]
+                    //     },
+                    //     {
+                    //         featureType: 'road.highway',
+                    //         elementType: 'labels.text.fill',
+                    //         stylers: [{color: '#f3d19c'}]
+                    //     },
+                    //     {
+                    //         featureType: 'transit',
+                    //         elementType: 'geometry',
+                    //         stylers: [{color: '#2f3948'}]
+                    //     },
+                    //     {
+                    //         featureType: 'transit.station',
+                    //         elementType: 'labels.text.fill',
+                    //         stylers: [{color: '#d59563'}]
+                    //     },
+                    //     {
+                    //         featureType: 'water',
+                    //         elementType: 'geometry',
+                    //         stylers: [{color: '#17263c'}]
+                    //     },
+                    //     {
+                    //         featureType: 'water',
+                    //         elementType: 'labels.text.fill',
+                    //         stylers: [{color: '#515c6d'}]
+                    //     },
+                    //     {
+                    //         featureType: 'water',
+                    //         elementType: 'labels.text.stroke',
+                    //         stylers: [{color: '#17263c'}]
+                    //     }
+                    // ]
+                };
+
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+                // var marker = new google.maps.Marker({
+                //     position: new google.maps.LatLng(51.508742, -0.120850),
+                //     map: map,
+                //     // animation:google.maps.Animation.BOUNCE
+                //     // icon:image,
+                //     draggable: true,
+                //     title: "Drag me!"
+                // });
+
+                // var myCity = new google.maps.Circle({
+                //     map: map,
+                //     center: myCenter,
+                //     radius: 200000,
+                //     strokeColor: "#0000FF",
+                //     strokeOpacity: 0.2,
+                //     strokeWeight: 1,
+                //     fillColor: "#0000FF",
+                //     fillOpacity: 0.1
+                // });
+
+
+                // //点击鼠标新建标签，只需要把注释掉的placeMarker取消就可以用了。
+                // google.maps.event.addListener(map, 'click', function(event) {
+                //     placeMarker(event.latLng);
+                //     console.log(event.latLng.lat())
+                // });
+                //
+                // function placeMarker(location) {
+                //
+                //     var flagnew=true;
+                //     var flaginial=true;
+                //     var markernew = new google.maps.Marker({
+                //         position: location,
+                //         map: map,
+                //     });
+                //     var infowindownew = new google.maps.InfoWindow({
+                //         content: contentString
+                //     });
+                //     // infowindownew.open(map,markernew);
+                //     infowindownew.open(map,markernew);
+                //     google.maps.event.addListener(markernew, 'click', function() {
+                //         if(flaginial==true){
+                //             infowindownew.close(map,markernew);
+                //             flaginial=false;
+                //         }else{
+                //             if(flagnew==true){
+                //                 infowindownew.open(map,markernew);
+                //                 flagnew=false;
+                //             }else{
+                //                 infowindownew.close(map,markernew);
+                //                 flagnew=true;
+                //             }
+                //         }
+                //
+                //
+                //     });
+                // }
+
+                //=>InfoWindows信息窗
+                var contentString = '<iframe frameborder="no" scrolling="yes" allowtransparency="yes" src="locationinfo.html" width="300" height="300"></iframe>';
+                var contentString2 = localStorage.mylocation;
+
+                var infowindownew = new google.maps.InfoWindow({
+                    content: contentString
+                });
+                // infowindownew.open(map,markernew);
+
+                //创建Marker
+                var markers2 = []
+
+                function placeMarker(location,otherinfo) {
+                    var flagnew = false;
+                    var flaginial = true;
+                    var markernew = new google.maps.Marker({
+                        position: location,
+                        map: map,
+                    });
+                    markers2.push(markernew);
+
+                    google.maps.event.addListener(markernew, 'click', function () {
+                        localStorage.mylocation = JSON.stringify(location);
+                        localStorage.myInfo=otherinfo[0]//这里myInfo存储的就是事故编号acc_num
+                        // if(flaginial==true){
+                        //     infowindownew.close(map,markernew);
+                        //     flaginial=false;
+                        // }else{
+                        //     if(flagnew==true){
+                        //         infowindownew.open(map,markernew);
+                        //         flagnew=false;
+                        //     }else{
+                        //         infowindownew.close(map,markernew);
+                        //         flagnew=true;
+                        //     }
+                        // }
+
+                        infowindownew.open(map, markernew);
+                    });
+                }
+
+                // //多个地点标签显示与重叠问题。
+                // var beaches = [
+                //     ['Bondi Beach', -33.890542, 151.274856, 4],
+                //     ['Coogee Beach', -33.923036, 151.259052, 5],
+                //     ['Cronulla Beach', -34.028249, 151.157507, 3],
+                //     ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+                //     ['Maroubra Beach', -33.950198, 151.259302, 1]
+                // ];
+                //
+                // var shape = {
+                //     coords: [1, 1, 1, 20, 18, 20, 18, 1],
+                //     type: 'poly'
+                // };
+                //beaches2标签测试数据，heatmapData2热图测试数据
+                var beaches2 = [[201600000022, 16, 4, 2, 1045, 1, 1, 2, 1, 3, 402, 5084579, 226407, 590, 3, 2, 2, 0, 2, 1, 0, 73, 1, 0, 0, 0, 4, 2, 0, 0], [201600000051, 16, 4, 29, 1545, 1, 1, 1, 1, 1, 581, 5068000, 279300, 590, 3, 2, 2, 0, 1, 1, 68, 0, 1, 0, 1, 99, 2, 0, 2, 0], [201600000052, 16, 6, 1, 1530, 1, 2, 1, 2, 3, 268, 5064100, 271200, 590, 3, 2, 2, 0, 1, 1, 0, 65, 2, 0, 1, 3, 2, 0, 2, 0], [201600000056, 16, 10, 18, 745, 2, 1, 1, 1, 6, 581, 5070800, 276500, 590, 3, 2, 2, 0, 1, 1, 0, 62, 1, 0, 1, 0, 0, 2, 2, 0], [201600000058, 16, 3, 10, 400, 3, 2, 1, 1, 6, 615, 5070266, 262094, 590, 3, 2, 2, 0, 1, 3, 0, 63, 1, 0, 3, 99, 0, 2, 0, 0], [201600000066, 16, 6, 27, 1545, 1, 1, 1, 1, 1, 546, 5078535, 253023, 590, 3, 2, 0, 0, 1, 1, 0, 69, 1, 0, 1, 99, 0, 2, 2, 0], [201600000073, 16, 9, 27, 2100, 5, 2, 2, 1, 3, 44, 5060979, 322963, 590, 3, 2, 2, 0, 1, 1, 0, 0, 1, 5, 0, 99, 4, 0, 2, 0], [201600000081, 16, 1, 22, 1130, 1, 1, 2, 1, 3, 643, 5074146, 296661, 590, 3, 2, 2, 2, 1, 1, 0, 81, 1, 0, 1, 99, 2, 0, 2, 0], [201600000083, 16, 4, 2, 815, 1, 2, 8, 1, 3, 482, 5071633, 299358, 590, 3, 2, 2, 0, 1, 1, 0, 63, 1, 4, 0, 99, 2, 0, 2, 0], [201600000084, 16, 4, 2, 200, 3, 1, 1, 1, 2, 252, 5071359, 293964, 590, 3, 2, 2, 2, 1, 1, 0, 97, 1, 0, 1, 0, 2, 0, 0, 2], [201600000087, 16, 5, 30, 1145, 1, 1, 6, 2, 2, 173, 5073736, 295811, 590, 3, 2, 2, 0, 1, 1, 0, 0, 2, 5, 0, 99, 2, 0, 2, 0], [201600000088, 16, 8, 9, 1345, 1, 2, 6, 1, 3, 252, 5071258, 293230, 590, 3, 2, 2, 0, 1, 1, 0, 58, 1, 5, 1, 99, 2, 0, 4, 0], [201600000089, 16, 9, 10, 530, 3, 1, 1, 1, 1, 252, 5070937, 294594, 590, 3, 2, 2, 0, 1, 1, 0, 69, 1, 0, 1, 99, 2, 0, 2, 0], [201600000090, 16, 12, 24, 530, 5, 1, 1, 1, 6, 173, 5072661, 297364, 590, 3, 2, 0, 1, 0, 1, 0, 60, 2, 5, 3, 99, 0, 0, 2, 0], [201600000095, 16, 4, 4, 1530, 1, 1, 1, 1, 1, 313, 5026022, 332324, 590, 3, 2, 0, 0, 1, 1, 0, 73, 2, 0, 1, 99, 4, 2, 2, 0], [201600000099, 16, 2, 4, 2115, 5, 2, 1, 1, 6, 374, 5012850, 383819, 590, 3, 2, 2, 0, 2, 1, 0, 70, 1, 0, 4, 0, 0, 4, 0, 0], [201600000129, 16, 2, 7, 615, 5, 2, 1, 2, 6, 274, 5007517, 368177, 590, 3, 2, 0, 0, 1, 3, 25, 69, 2, 5, 1, 99, 4, 2, 0, 0], [201600000133, 16, 6, 20, 1500, 1, 2, 1, 3, 6, 139, 5013195, 340272, 590, 3, 2, 0, 0, 1, 1, 0, 0, 2, 0, 1, 99, 0, 2, 0, 0], [201600000154, 16, 2, 11, 645, 2, 2, 1, 1, 7, 26, 5026700, 316400, 590, 3, 2, 2, 0, 1, 1, 0, 0, 1, 0, 1, 3, 0, 0, 2, 0], [201600000155, 16, 7, 2, 1400, 1, 2, 1, 1, 6, 224, 5026763, 322428, 590, 3, 2, 0, 0, 1, 2, 60, 0, 1, 0, 4, 0, 0, 2, 0, 0], [201600000156, 16, 8, 28, 2000, 2, 2, 1, 1, 3, 15, 5028800, 312600, 590, 3, 2, 0, 0, 2, 1, 0, 65, 1, 0, 1, 3, 2, 0, 2, 0], [201600000157, 16, 12, 17, 2100, 5, 2, 1, 2, 1, 224, 5027000, 321100, 590, 4, 2, 0, 0, 1, 1, 0, 55, 2, 0, 1, 3, 2, 0, 2, 0], [201600000158, 16, 12, 21, 500, 3, 1, 6, 1, 7, 126, 5031200, 313000, 590, 3, 3, 2, 0, 1, 1, 0, 0, 2, 5, 1, 99, 0, 0, 2, 0], [201600000159, 16, 12, 27, 1015, 1, 2, 6, 1, 3, 409, 5030900, 320800, 590, 3, 2, 2, 0, 1, 1, 0, 0, 1, 5, 1, 3, 2, 0, 2, 0], [201600000161, 16, 7, 9, 2100, 1, 2, 1, 1, 2, 80, 5049400, 340000, 590, 3, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 99, 2, 0, 2, 0], [201600000175, 16, 3, 17, 1945, 3, 1, 1, 1, 5, 315, 5030514, 377363, 590, 3, 3, 2, 0, 3, 1, 0, 73, 1, 0, 1, 0, 4, 2, 0, 0]];
+                var beaches_true =[];
+                var heatmapData2 = []
+                var heatmapDataBlank = []
+                for (var i = 0; i < beaches2.length; i++) {
+                    var beach = beaches2[i];
+                    placeMarker({lat: beach[11] / 100000, lng: beach[12] / 100000},beach)//调用函数创建标签
+                    // var marker = new google.maps.Marker({
+                    //     position: {lat: beach[11]/100000, lng: beach[12]/100000},
+                    //     map: map,
+                    //     icon: image3,
+                    //     shape: shape,
+                    //     // title: beach[0],
+                    //     // zIndex: beach[3]
+                    // });
+                    heatmapData2.push(new google.maps.LatLng(beach[11] / 100000, beach[12] / 100000))
+                    // markers2.push(marker);
+                }
+                $.ajax({
+                    url: 'test.json',
+                    async: false,
+                    success: function (data) {
+                        return_data2 = data;
+                        console.log(return_data2)
+                        for (var i = 0; i < return_data2["data"].length; i++) {
+                            var beach = return_data2["data"][i];
+                            placeMarker({lat: beach[1] / 100000, lng: beach[2] / 100000}, beach)//调用函数创建标签
+                            // var marker = new google.maps.Marker({
+                            //     position: {lat: beach[11]/100000, lng: beach[12]/100000},
+                            //     map: map,
+                            //     icon: image3,
+                            //     shape: shape,
+                            //     // title: beach[0],
+                            //     // zIndex: beach[3]
+                            // });
+
+                            heatmapData2.push(new google.maps.LatLng(beach[1] / 100000, beach[2] / 100000))
+
+                            // markers2.push(marker);
+                        }
+                    }
+                });
+
+
+
+                //创建标签聚类
+                var markerCluster2 = new MarkerClusterer(map, markers2, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+                // console.log(markerCluster2.getGridSize())
+                markerCluster2.setGridSize(60);//配置标签Grid大小
+                // console.log(markerCluster2.getGridSize())
+
+                /* Data points defined as an array of LatLng objects */
+                var heatmapData = [
+                    new google.maps.LatLng(37.782, -122.447),
+                    new google.maps.LatLng(37.782, -122.445),
+                    new google.maps.LatLng(37.782, -122.443),
+                    new google.maps.LatLng(37.782, -122.441),
+                    new google.maps.LatLng(37.782, -122.439),
+                    new google.maps.LatLng(37.782, -122.437),
+                    new google.maps.LatLng(37.782, -122.435),
+                    new google.maps.LatLng(37.785, -122.447),
+                    new google.maps.LatLng(37.785, -122.445),
+                    new google.maps.LatLng(37.785, -122.443),
+                    new google.maps.LatLng(37.785, -122.441),
+                    new google.maps.LatLng(37.785, -122.439),
+                    new google.maps.LatLng(37.785, -122.437),
+                    new google.maps.LatLng(37.785, -122.435)
+                ];
+
+                var sanFrancisco = new google.maps.LatLng(37.774546, -122.433523);
+
+                // map2 = new google.maps.Map(document.getElementById('googleMap2'), {
+                //     center: sanFrancisco,
+                //     zoom: 13,
+                //     mapTypeId: 'satellite'
+                // });
+
+                // var heatmap = new google.maps.visualization.HeatmapLayer({
+                //     data: heatmapData,
+                //     map: map2
+                // });
+                // // heatmap.setMap(map2);
+
+
+                //////////////////////////////////////////////////////////////
+                // var heatmap2 = new google.maps.visualization.HeatmapLayer({
+                //     data: heatmapData2,
+                //     map: map,
+                //     radius:15,
+                //     opacity:0.8
+                // });
+                //地图外操作
+                // var button1flag=false;
+                $("#button1").click(function () {
+                    $("h1").text("Reset Maps")
+                    console.log("Reset")
+                    console.log(map.getCenter())
+                    map.setCenter(new google.maps.LatLng(46.867642, 2.424957));
+                    map.setZoom(5.5)
+                    // map.setCenter(new google.maps.LatLng(37.782, -122.447));
+                    // if(button1flag==false){
+                    //     map.setCenter(new google.maps.LatLng(37.782, -122.447));
+                    //     button1flag=true;
+                    // }else{
+                    //     map.setCenter(new google.maps.LatLng(46.867642, 2.424957));
+                    //     button1flag=false;
+                    // }
+                });
+
+                var flag_cluster=0;
+                $("#button2").click(function () {
+                    $("h1").text("Change the visibility of the markers ")
+                    console.log("button2")
+                    // map.setOption(new google.maps.MapOptions)
+                    if(flag_cluster){
+                        markerCluster2.addMarkers(markers2)
+                        for (var i=0;i<markers2.length;i++ ){
+                            markers2[i].setVisible(true)
+                        }
+                        flag_cluster=0
+                    }else{
+                        for (var i=0;i<markers2.length;i++ ){
+                            // debugger;
+                            console.log(markers2[i].getPosition())
+                            markers2[i].setVisible(false)
+                            // debugger;
+                            // console.log(typeof markers2[i]);
+                        }
+                        // console.log(markers2)
+                        markerCluster2.clearMarkers();
+                        flag_cluster=1;
+                    }
+
+
+
+                });
+                // $("#button3").click(function () {
+                //     $("h1").text("Chage the map type")
+                //     console.log("button3")
+                //     heatmap2.getData().length?heatmap2.setData(heatmapDataBlank):heatmap2.setData(heatmapData2);
+                //
+                // });
+                // var return_data = {}
+                // var return_data2 = {}
+                // $("#button4").click(function(){
+                //
+                //
+                //     $(document).ready(function () {
+                //         $.ajax({
+                //             url: 'test.json',
+                //             async: false,
+                //             success: function (data) {
+                //                 return_data2 = data;
+                //                 console.log(return_data2)
+                //                 for (var i = 0; i < return_data2["data"].length; i++) {
+                //                     var beach = return_data2["data"][i];
+                //                     placeMarker({lat: beach[1] / 100000, lng: beach[2] / 100000},beach)//调用函数创建标签
+                //                     // var marker = new google.maps.Marker({
+                //                     //     position: {lat: beach[11]/100000, lng: beach[12]/100000},
+                //                     //     map: map,
+                //                     //     icon: image3,
+                //                     //     shape: shape,
+                //                     //     // title: beach[0],
+                //                     //     // zIndex: beach[3]
+                //                     // });
+                //
+                //                     heatmapData2.push(new google.maps.LatLng(beach[1] / 100000, beach[2] / 100000))
+                //
+                //                     // markers2.push(marker);
+                //                 }
+                //             }
+                //         });
+                //     });
+                //    $("h1").text("Get the true data")
+                //     // $.getJSON("questions/questions.json", function(data) {
+                //     //     type: 'POST', url: 'http://fr.hshsilver.com/getall',
+                //     //     game.questions = data;
+                //     //     game.updates();
+                //     // });
+                //     $.ajax({
+                //         type: 'POST',
+                //         url: 'http://fr.hshsilver.com/getall',
+                //         // data: {
+                //         //     // "type": 'yearmonth',
+                //         //     "date": month_str
+                //         // },
+                //         success: function(data) {
+                //             console.log(data);
+                //             // data_temp = $.parseJSON(data);
+                //             // console.log(data_temp)
+                //             return_data = $.parseJSON(data);
+                //             // console.log({"name":123})
+                //             console.log(return_data); //json格式
+                //             // return_data2 = $.parseJSON(return_data);
+                //             // console.log(return_data2);
+                //             // // data_all = return_data.data;
+                //             // console.log(return_data2["data"]);
+                //
+                //             for (var i = 0; i < return_data["data"].length; i++) {
+                //                 var beach = return_data["data"][i];
+                //                 placeMarker({lat: beach[1] / 100000, lng: beach[2] / 100000},beach)//调用函数创建标签
+                //                 // var marker = new google.maps.Marker({
+                //                 //     position: {lat: beach[11]/100000, lng: beach[12]/100000},
+                //                 //     map: map,
+                //                 //     icon: image3,
+                //                 //     shape: shape,
+                //                 //     // title: beach[0],
+                //                 //     // zIndex: beach[3]
+                //                 // });
+                //
+                //                 heatmapData2.push(new google.maps.LatLng(beach[1] / 100000, beach[2] / 100000))
+                //
+                //                 // markers2.push(marker);
+                //             }
+                //
+                //         },
+                //     });
+                //
+                //
+                // });
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+
+            // function eqfeed_callback(results) {
+            //     var heatmapData = [];
+            //     for (var i = 0; i < results.features.length; i++) {
+            //         var coords = results.features[i].geometry.coordinates;
+            //         var latLng = new google.maps.LatLng(coords[1], coords[0]);
+            //         heatmapData.push(latLng);
+            //     }
+            //     var heatmap = new google.maps.visualization.HeatmapLayer({
+            //         data: heatmapData,
+            //         dissipating: false,
+            //         map: map
+            //     });
+
+        });
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD41X7x5QV4_4_aSnLM6CB7egXhvSV3QGM&libraries=visualization&callback=initMap">
+    </script>
+</head>
+
+<body>
+<!--<div>-->
+<div style="height:100%;width:100%">
+    <div id="map" style="width:62%; height:100%;float:left;">
+        <div id="googleMap"
+             style="margin:5px 0px 5px 0px;width:100%;height:100%;border-radius: 5px;box-shadow:0 2px 4px 2px  rgba(0, 0, 0, 0.3); ">
+        </div>
+    </div>
+    <div id="classification" style="width:38%;height:100%;float:right;">
+        <div style="margin:5px 5px 5px 10px;padding:10px;border-radius: 5px;box-shadow:0 2px 4px 2px  rgba(0, 0, 0, 0.3);">
+            <h1 id="title">TITLE HERE</h1>
+            <button id="button1">Reset</button><br/>
+            <button id="button2">Visibility</button>
+            <!--<button id="button3">BUTTON3</button>-->
+            <!--<button id="button4">BUTTON4</button>-->
+        </div>
+    </div>
+</div>
+<!--<div id="googleMap2" style="width:1080px;height:700px;margin-top:20px"></div>-->
+</body>
+<style>
+    button { /* 按钮美化 */
+        width: 32%; /* 宽度 */
+        height: 40px; /* 高度 */
+        border-width: 0px; /* 边框宽度 */
+        border-radius: 3px; /* 边框半径 */
+        background: #1E90FF; /* 背景颜色 */
+        cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+        outline: none; /* 不显示轮廓线 */
+        font-family: Microsoft YaHei; /* 设置字体 */
+        color: white; /* 字体颜色 */
+        font-size: 17px; /* 字体大小 */
+        margin-top: 10px;
+    }
+    button:hover { /* 鼠标移入按钮范围时改变颜色 */
+        background: #5599FF;
+    }
+
+</style>
+</html>

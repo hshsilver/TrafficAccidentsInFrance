@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Accident Mining</title>
+    <meta name="description" content="Data mining about the accident in France." />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="dist/img/logo_1.png">
+    <link rel="icon" href="dist/img/logo_1.png" type="image/x-icon">
+
+    <!-- Morris Charts CSS -->
+    <link href="vendors/morris.js/morris.css" rel="stylesheet" type="text/css" />
+
+    <!-- Toggles CSS -->
+    <link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
+    <link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
+
+    <!-- Toastr CSS -->
+    <link href="vendors/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-it">
+        <div class="loader-pendulums"></div>
+    </div>
+    <!-- /Preloader -->
+
+    <!-- HK Wrapper -->
+    <div class="hk-wrapper hk-alt-nav">
+
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt">
+            <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
+            <a class="navbar-brand" href="index.html">
+                <img class="brand-img d-inline-block align-top" src="dist/img/logo_1.png" alt="brand" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarCollapseAlt">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown show-on-hover">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Predict
+							</a>
+                        <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                            <a class="dropdown-item" href="deaths.html">Deaths</a>
+                            <a class="dropdown-item" href="probability.html">Probability</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown show-on-hover active">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Visualization
+							</a>
+                        <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                            <a class="dropdown-item active" href="analysis.html">Analysis</a>
+                            <a class="dropdown-item" href="map.html">Map</a>
+                            <a class="dropdown-item" href="heatmap.html">Heat Map</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="upload.html">Upload</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav hk-navbar-content">
+                <li class="nav-item dropdown dropdown-authentication">
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i data-feather="settings"></i></span></a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                        <h6 class="dropdown-item" id="langEN"><a lang href="#" class="">English</a></h6>
+                        <h6 class="dropdown-item" id="langFR"><a lang href="#" class="">Franch</a></h6>
+                        <h6 class="dropdown-item" id="langCN"><a lang href="#" class="">Chinese</a></h6>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /Top Navbar -->
+
+        <!-- Main Content -->
+        <div class="hk-pg-wrapper">
+            <!-- Breadcrumb -->
+            <nav class="hk-breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-light bg-transparent">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item">Visualization</li>
+                    <li class="breadcrumb-item active" aria-current="page">Analysis</li>
+                </ol>
+            </nav>
+            <!-- /Breadcrumb -->
+            <!-- Container -->
+            <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
+                <iframe id='result' src="calendar-horizontal.html" width="100%" height="2300" scrolling="no"></iframe>
+                <!-- /Row -->
+            </div>
+            <!-- /Container -->
+
+            <!-- Footer -->
+            <div class="hk-footer-wrap container-fluid">
+                <footer class="footer">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <p>Pampered by<a href="http://www.bootstrapmb.com/" class="text-dark" target="_blank">Hencework</a> © 2019</p>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <p class="d-inline-block">Follow us</p>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
+                            <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- /Footer -->
+        </div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /HK Wrapper -->
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Slimscroll JavaScript -->
+    <script src="dist/js/jquery.slimscroll.js"></script>
+
+
+
+    <!-- FeatherIcons JavaScript -->
+    <script src="dist/js/feather.min.js"></script>
+
+    <!-- Toggles JavaScript -->
+    <script src="vendors/jquery-toggles/toggles.min.js"></script>
+
+
+    <!-- Toastr JS -->
+    <script src="vendors/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+
+    <!-- Counter Animation JavaScript -->
+    <script src="vendors/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="vendors/jquery.counterup/jquery.counterup.min.js"></script>
+
+
+
+    <!-- Easy pie chart JS -->
+    <script src="vendors/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+
+    <!-- EChartJS JavaScript -->
+    <script src="vendors/echarts/dist/echarts-en.min.js"></script>
+
+    <!-- Init JavaScript -->
+    <script src="dist/js/init.js"></script>
+    <script src="dist/js/dashboard2-data.js"></script>
+
+</body>
+
+</html>

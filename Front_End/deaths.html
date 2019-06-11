@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<!-- 
+Template Name: Griffin - Responsive Bootstrap 4 Admin Dashboard Template
+Author: Hencework
+Support: support@hencework.com
+
+License: You must have a valid license purchased only from templatemonster to legally use the template for your project.
+-->
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title lang>Accident Mining</title>
+    <meta name="description" content="Data mining about the accident in France." />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="dist/img/logo_1.png">
+    <link rel="icon" href="dist/img/logo_1.png" type="image/x-icon">
+
+    <!-- select2 CSS -->
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Daterangepicker CSS -->
+    <link href="vendors/daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+
+    <!-- Toggles CSS -->
+    <link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
+    <link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-it">
+        <div class="loader-pendulums"></div>
+    </div>
+    <!-- /Preloader -->
+
+    <!-- HK Wrapper -->
+    <div class="hk-wrapper hk-alt-nav">
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt">
+            <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
+            <a class="navbar-brand" href="index.html">
+                <img class="brand-img d-inline-block align-top" src="dist/img/logo_1.png" alt="brand" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarCollapseAlt">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a lang class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown show-on-hover">
+                        <a lang class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Predict</a>
+                        <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                            <a lang class="dropdown-item" href="predicts.html">Predicts</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown show-on-hover">
+                        <a lang class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Visualization</a>
+                        <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                            <a lang class="dropdown-item" href="analysis.html">Analysis</a>
+                            <a lang class="dropdown-item" href="map.html">Map</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a lang class="nav-link" href="upload.html">Upload</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav hk-navbar-content">
+                <li class="nav-item dropdown dropdown-authentication">
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="feather-icon"><i data-feather="settings"></i></span></a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                        <h6 class="dropdown-item" id="langEN"><a lang href="#" class="">English</a></h6>
+                        <h6 class="dropdown-item" id="langFR"><a lang href="#" class="">Franch</a></h6>
+                        <h6 class="dropdown-item" id="langCN"><a lang href="#" class="">Chinese</a></h6>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /Top Navbar -->
+
+        <!-- Main Content -->
+        <div class="hk-pg-wrapper">
+            <!-- Breadcrumb -->
+            <nav class="hk-breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-light bg-transparent">
+                    <li lang class="breadcrumb-item"><a lang href="#">Home</a></li>
+                    <li lang class="breadcrumb-item active" aria-current="page">predict deaths</li>
+                </ol>
+            </nav>
+            <!-- /Breadcrumb -->
+
+            <!-- Container -->
+            <div class="container-fluid">
+                <!-- Title -->
+                <div class="hk-pg-header">
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span><a lang>Predict Accident</a></h4>
+                </div>
+                <!-- /Title -->
+
+                <!-- Row -->
+                <div id="upload" class="row">
+                    <div class="col-xl-12">
+                        <section class="hk-sec-wrapper">
+                            <h5 lang class="hk-sec-title">Deaths Predict</h5>
+                            <p lang class="mb-25">Please enter the details of the accident you want to predict.</p>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <form id="submitForm">
+                                        <div class="row">
+                                            <div class="col-md-6 form-group">
+                                                <label lang for="long">Longitude</label>
+                                                <input class="form-control" id="long" placeholder="" value="" type="text" name="long">
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label lang for="lat">Latitude</label>
+                                                <input class="form-control" id="lat" placeholder="" value="" type="text" name="lat">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4 mb-10">
+                                                <label lang for="day">Day</label>
+                                                <input class="form-control" id="day" placeholder="00" type="text" name="day">
+                                            </div>
+                                            <div class="col-md-4 mb-10">
+                                                <label lang for="month">Month</label>
+                                                <input class="form-control" id="month" placeholder="00" type="text" name="month">
+                                            </div>
+                                            <div class="col-md-4 mb-10">
+                                                <label lang for="year">Year</label>
+                                                <input class="form-control" id="year" placeholder="0000" type="text" name="year">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="time">Time</label>
+                                            <input class="form-control" id="time" type="text" name="time" , placeholder="1200">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="lighting">Lighting</label>
+                                            <p lang class="mb-5">Choose the lighting conditions in which the accident occurred.</p>
+                                            <select class="form-control custom-select  mt-15" id="lighting" name="lum">
+                                                <option lang value="1">Full day</option>
+                                                <option lang value="2">Twilight or dawn</option>
+                                                <option lang value="3">Night without public lighting</option>
+                                                <option lang value="4">Night with public lighting not lit</option>
+												<option lang value="5">Night with public lighting on</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="intersection">Type of Intersection</label>
+                                            <select class="form-control custom-select  mt-15" id="intersection" name="int">
+                                                <option lang value="1">Out of intersection</option>
+                                                <option lang value="2">Intersection in X </option>
+                                                <option lang value="3">Intersection in T</option>
+                                                <option lang value="4"> Intersection in Y</option>
+												<option lang value="5">Intersection with more than 4 branches</option>
+												<option lang value="6">Gyratory</option>
+												<option lang value="7">Place</option>
+												<option lang value="8">Level crossing </option>
+												<option lang value="9">Other intersection</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="circ">Traffic regime</label>
+                                            <select class="form-control custom-select  mt-15" id="circ" name="circ">
+                                                <option lang value="1">One way</option>
+                                                <option lang value="2">Bidirectional</option>
+                                                <option lang value="3">Separated carriageways</option>
+                                                <option lang value="4">With variable assignment channels</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="atmospheric">Atmospheric conditions</label>
+                                            <select class="form-control custom-select  mt-15" id="atmospheric" name="atm">
+												<option lang value="1">Normal</option>
+												<option lang value="2">Light rain</option>
+												<option lang value="3">Heavy rain</option>
+												<option lang value="4">Snow - hail</option>
+												<option lang value="5">Fog - smoke</option>
+												<option lang value="6">Strong wind - storm</option>
+												<option lang value="7">Dazzling weather</option>
+												<option lang value="8">Cloudy weather</option>
+												<option lang value="9">Other</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="collision">Type of collision</label>
+                                            <select class="form-control custom-select  mt-15" id="collision" name="col">
+												<option lang value="1">Two vehicles - frontal</option>
+												<option lang value="2">Two vehicles - from the rear</option>
+												<option lang value="3">Two vehicles - by the side</option>
+												<option lang value="4">Three vehicles and more - in chain</option>
+												<option lang value="5">Three or more vehicles - multiple collisions</option>
+												<option lang value="6">Other collision</option>
+												<option lang value="7">Without  collision</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="collision">Category of road</label>
+                                            <select class="form-control custom-select  mt-15" id="collision" name="catr">
+												<option lang value="1">Highway</option>
+												<option lang value="2">National Road</option>
+												<option lang value="3">Departmental Road</option>
+												<option lang value="4">Communal Way</option>
+												<option lang value="5">Off public network</option>
+												<option lang value="6">Parking lot open to public traffic</option>
+												<option lang value="9">Other</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="vosp">reserved lane</label>
+                                            <p lang class="mb-5">Indicates the existence of a reserved lane, regardless of whether or not the accident occurs on that lane.</p>
+                                            <select class="form-control custom-select  mt-15" id="vosp" name="vosp">
+												<option lang value="1">Bike path</option>
+												<option lang value="2">Cycle Bank</option>
+												<option lang value="3">Reserved channel</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="prof">Longitudinal profile</label>
+                                            <p lang class="mb-5">Longitudinal profile describes the gradient of the road at the accident site.</p>
+                                            <select class="form-control custom-select  mt-15" id="prof" name="prof">
+												<option lang value="1">Dish</option>
+												<option lang value="2">Slope</option>
+                                                <option lang value="3">Hilltop</option>
+                                                <option lang value="4">Hill bottom</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="plan">Plan</label>
+                                            <p lang class="mb-5">Drawing in plan.</p>
+                                            <select class="form-control custom-select  mt-15" id="plan" name="plan">
+												<option lang value="1">Straight part</option>
+												<option lang value="2">Curved on the left</option>
+                                                <option lang value="3">Curved right</option>
+                                                <option lang value="4">In "S"</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="surf">surface condition</label>
+                                            <select class="form-control custom-select  mt-15" id="surf" name="surf">
+                                                <option lang value="1">normal</option>
+                                                <option lang value="2">wet</option>
+                                                <option lang value="3">puddles</option>
+                                                <option lang value="4">flooded</option>
+                                                <option lang value="5">snow</option>
+                                                <option lang value="6">mud</option>
+                                                <option lang value="7">icy</option>
+                                                <option lang value="8">fat - oil</option>
+                                                <option lang value="9">other</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="infra">Development - Infrastructure</label>
+                                            <select class="form-control custom-select  mt-15" id="infra" name="infra">
+                                                <option lang value="1">Underground - tunnel</option>
+                                                <option lang value="2">Bridge - autopont</option>
+                                                <option lang value="3">Exchanger or connection brace</option>
+                                                <option lang value="4">Railway</option>
+                                                <option lang value="5">Carrefour arranged</option>
+                                                <option lang value="6">Pedestrian area</option>
+                                                <option lang value="7">Toll zone</option>>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="situ">Situation of the accident</label>
+                                            <select class="form-control custom-select  mt-15" id="situ" name="situ">
+                                                <option lang value="1">On the road</option>
+                                                <option lang value="2">On emergency stop band</option>
+                                                <option lang value="3">On the verge</option>
+                                                <option lang value="4">On the sidewalk</option>
+                                                <option lang value="5">On bike path</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label lang for="env1">School</label>
+                                            <select class="form-control custom-select  mt-15" id="env1" name="env1">
+                                                <option lang value="99">Near a school</option>
+                                                <option lang value="0">other</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4 mb-10">
+                                                <label lang for="nbv">Total number of traffic lanes</label>
+                                                <input class="form-control" id="nbv" value="0" type="text" name="nbv">
+                                            </div>
+                                            <div class="col-md-4 mb-10">
+                                                <label lang for="lartpc">Central solid land width (TPC) if there is</label>
+                                                <input class="form-control" id="lartpc" type="text" name="lartpc" value="0">
+                                            </div>
+                                            <div class="col-md-4 mb-10">
+                                                <label lang for="larrout">Width of the roadway</label>
+                                                <input class="form-control" id="larrout" value="0" type="text" name="larrout">
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <button type="button" id="deaths" class="btn btn-primary">Predict Deaths</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!-- /Row -->
+            </div>
+            <!-- /Container -->
+            <iframe id='result' width="100%" height="100%" scrolling="no"></iframe>
+            <!-- Footer -->
+            <div class=" hk-footer-wrap container-fluid ">
+                <footer class="footer ">
+                    <div class="row ">
+                        <div class="col-md-6 col-sm-12 ">
+                            <p lang>Pampered by<a href="http://www.bootstrapmb.com/ " class="text-dark " target="_blank ">TJU</a> © 2019</p>
+                        </div>
+                        <div class="col-md-6 col-sm-12 ">
+                            <p lang class="d-inline-block ">Follow us</p>
+                            <a href="# " class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4 "><span class="btn-icon-wrap "><i class="fa fa-facebook "></i></span></a>
+                            <a href="# " class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4 "><span class="btn-icon-wrap "><i class="fa fa-twitter "></i></span></a>
+                            <a href="# " class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4 "><span class="btn-icon-wrap "><i class="fa fa-google-plus "></i></span></a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- /Footer -->
+
+        </div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /HK Wrapper -->
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js "></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js "></script>
+
+    <!-- Slimscroll JavaScript -->
+    <script src="dist/js/jquery.slimscroll.js "></script>
+
+    <!-- FeatherIcons JavaScript -->
+    <script src="dist/js/feather.min.js "></script>
+
+    <!-- bootstrapValidator JavaScript -->
+    <script src="vendors/bootstrap-validator/js/bootstrapValidator.min.js "></script>
+
+    <!-- layer JavaScript -->
+    <script src="vendors/layer/js/layer.js "></script>
+
+    <!-- jquery form JavaScript -->
+    <script src="vendors/jquery.form/js/jquery.form.min.js "></script>
+
+    <!-- Init JavaScript -->
+    <script src="dist/js/init.js "></script>
+    <script src="dist/js/predict.js "></script>
+</body>
+
+</html>
