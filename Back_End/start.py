@@ -44,4 +44,4 @@ def predictProbability():
 	return result
 
 if __name__ == '__main__':
-	app.run(port=2000,debug=True)
+	app.run(port=2500,debug=True)
