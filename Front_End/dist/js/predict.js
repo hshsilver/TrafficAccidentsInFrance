@@ -128,7 +128,7 @@ var initHttp = function() {
     $("#deaths").click(function() {
         var options = {
             // url: "http://fr.hshsilver.com/deaths", //同action 
-            url: "http://127.0.0.1:2000/deaths",
+            url: "http://fr.hshsilver.com/deaths",
             type: 'post',
             beforeSend: function(xhr) { //请求之前
                 var index = layer.load(1, {
@@ -170,7 +170,7 @@ var initHttp = function() {
     $("#probability").click(function() {
         var options = {
             // url: "http://fr.hshsilver.com/probability", //同action 
-            url: "http://127.0.0.1:2000/probability",
+            url: "http://fr.hshsilver.com/probability",
             type: 'post',
             beforeSend: function(xhr) { //请求之前
                 var index = layer.load(1, {
