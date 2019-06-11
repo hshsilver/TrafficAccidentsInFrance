@@ -150,5 +150,14 @@
 	"number of unscathed people":"nombre de personnes indemnes",
 	"number of killed people":"nombre de personnes tuées",
 	"number of hospital people":"nombre de personnes hospitalisées",
-	"number of light people":"nombre de personnes légères"
+	"number of light people":"nombre de personnes légères",
+	"predict accident":"Événement prévu",
+	"deaths predict":"Prédiction de la mort",
+	"please enter the details of the accident you want to predict.":"Veuillez saisir les détails de l'accident que vous souhaitez prédire.",
+	"Predict":"Prédire",
+	"deaths":"Nombre de morts",
+	"probability":"Probabilité",
+	"heat map":"Carte de chaleur",
+	"calendar-pie":"Carte du mois",
+	"calendar-horizontal":"Graphique année"
 }

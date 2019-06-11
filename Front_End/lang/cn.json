@@ -151,5 +151,14 @@
 	"number of unscathed people":"毫发无损人数",
 	"number of killed people":"死亡人数",
 	"number of hospital people":"住院人数",
-	"number of light people":"轻伤人数"
+	"number of light people":"轻伤人数",
+	"predict accident":"预测的事件",
+	"deaths predict":"死亡预测",
+	"please enter the details of the accident you want to predict.":"请填写你想预测的事件的详细信息。",
+	"Predict":"预测",
+	"deaths":"死亡人数",
+	"probability":"可能性",
+	"heat map":"热图",
+	"calendar-pie":"月份图",
+	"calendar-horizontal":"年份图"
 }
