@@ -242,31 +242,32 @@
                     //     // title: beach[0],
                     //     // zIndex: beach[3]
                     // });
-                    heatmapData2.push(new google.maps.LatLng(beach[11] / 100000, beach[12] / 100000))
+                    // heatmapData2.push(new google.maps.LatLng(beach[11] / 100000, beach[12] / 100000))
                     // markers2.push(marker);
                 }
+                // $.ajax({
+                //     type: 'POST',
+                //     url: 'http://fr.hshsilver.com/getall',
+                //     success: function (data) {
+                //         console.log(data);
+                //     }
+                // });
+
                 $.ajax({
-                    url: 'test.json',
+                    // type: 'POST',
+                    // url: 'http://fr.hshsilver.com/getall',
+                    url: 'all.json',
                     async: false,
                     success: function (data) {
                         return_data2 = data;
                         console.log(return_data2)
                         for (var i = 0; i < return_data2["data"].length; i++) {
                             var beach = return_data2["data"][i];
-                            // placeMarker({lat: beach[1] / 100000, lng: beach[2] / 100000}, beach)//调用函数创建标签
-                            // var marker = new google.maps.Marker({
-                            //     position: {lat: beach[11]/100000, lng: beach[12]/100000},
-                            //     map: map,
-                            //     icon: image3,
-                            //     shape: shape,
-                            //     // title: beach[0],
-                            //     // zIndex: beach[3]
-                            // });
-
                             heatmapData2.push(new google.maps.LatLng(beach[1] / 100000, beach[2] / 100000))
 
                             // markers2.push(marker);
                         }
+
                     }
                 });
 
