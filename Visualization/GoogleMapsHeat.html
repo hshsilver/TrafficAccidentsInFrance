@@ -30,86 +30,86 @@
                     zoom: 5.5,
                     disableDefaultUI: false,
                     mapTypeId: google.maps.MapTypeId.TERRAIN,
-                    // styles: [
-                    //     {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-                    //     {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-                    //     {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-                    //     {
-                    //         featureType: 'administrative.locality',
-                    //         elementType: 'labels.text.fill',
-                    //         stylers: [{color: '#d59563'}]
-                    //     },
-                    //     {
-                    //         featureType: 'poi',
-                    //         elementType: 'labels.text.fill',
-                    //         stylers: [{color: '#d59563'}]
-                    //     },
-                    //     {
-                    //         featureType: 'poi.park',
-                    //         elementType: 'geometry',
-                    //         stylers: [{color: '#263c3f'}]
-                    //     },
-                    //     {
-                    //         featureType: 'poi.park',
-                    //         elementType: 'labels.text.fill',
-                    //         stylers: [{color: '#6b9a76'}]
-                    //     },
-                    //     {
-                    //         featureType: 'road',
-                    //         elementType: 'geometry',
-                    //         stylers: [{color: '#38414e'}]
-                    //     },
-                    //     {
-                    //         featureType: 'road',
-                    //         elementType: 'geometry.stroke',
-                    //         stylers: [{color: '#212a37'}]
-                    //     },
-                    //     {
-                    //         featureType: 'road',
-                    //         elementType: 'labels.text.fill',
-                    //         stylers: [{color: '#9ca5b3'}]
-                    //     },
-                    //     {
-                    //         featureType: 'road.highway',
-                    //         elementType: 'geometry',
-                    //         stylers: [{color: '#746855'}]
-                    //     },
-                    //     {
-                    //         featureType: 'road.highway',
-                    //         elementType: 'geometry.stroke',
-                    //         stylers: [{color: '#1f2835'}]
-                    //     },
-                    //     {
-                    //         featureType: 'road.highway',
-                    //         elementType: 'labels.text.fill',
-                    //         stylers: [{color: '#f3d19c'}]
-                    //     },
-                    //     {
-                    //         featureType: 'transit',
-                    //         elementType: 'geometry',
-                    //         stylers: [{color: '#2f3948'}]
-                    //     },
-                    //     {
-                    //         featureType: 'transit.station',
-                    //         elementType: 'labels.text.fill',
-                    //         stylers: [{color: '#d59563'}]
-                    //     },
-                    //     {
-                    //         featureType: 'water',
-                    //         elementType: 'geometry',
-                    //         stylers: [{color: '#17263c'}]
-                    //     },
-                    //     {
-                    //         featureType: 'water',
-                    //         elementType: 'labels.text.fill',
-                    //         stylers: [{color: '#515c6d'}]
-                    //     },
-                    //     {
-                    //         featureType: 'water',
-                    //         elementType: 'labels.text.stroke',
-                    //         stylers: [{color: '#17263c'}]
-                    //     }
-                    // ]
+                    styles: [
+                        {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+                        {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+                        {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+                        {
+                            featureType: 'administrative.locality',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#d59563'}]
+                        },
+                        {
+                            featureType: 'poi',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#d59563'}]
+                        },
+                        {
+                            featureType: 'poi.park',
+                            elementType: 'geometry',
+                            stylers: [{color: '#263c3f'}]
+                        },
+                        {
+                            featureType: 'poi.park',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#6b9a76'}]
+                        },
+                        {
+                            featureType: 'road',
+                            elementType: 'geometry',
+                            stylers: [{color: '#38414e'}]
+                        },
+                        {
+                            featureType: 'road',
+                            elementType: 'geometry.stroke',
+                            stylers: [{color: '#212a37'}]
+                        },
+                        {
+                            featureType: 'road',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#9ca5b3'}]
+                        },
+                        {
+                            featureType: 'road.highway',
+                            elementType: 'geometry',
+                            stylers: [{color: '#746855'}]
+                        },
+                        {
+                            featureType: 'road.highway',
+                            elementType: 'geometry.stroke',
+                            stylers: [{color: '#1f2835'}]
+                        },
+                        {
+                            featureType: 'road.highway',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#f3d19c'}]
+                        },
+                        {
+                            featureType: 'transit',
+                            elementType: 'geometry',
+                            stylers: [{color: '#2f3948'}]
+                        },
+                        {
+                            featureType: 'transit.station',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#d59563'}]
+                        },
+                        {
+                            featureType: 'water',
+                            elementType: 'geometry',
+                            stylers: [{color: '#17263c'}]
+                        },
+                        {
+                            featureType: 'water',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#515c6d'}]
+                        },
+                        {
+                            featureType: 'water',
+                            elementType: 'labels.text.stroke',
+                            stylers: [{color: '#17263c'}]
+                        }
+                    ]
                 };
 
                 var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
@@ -233,7 +233,7 @@
                 var heatmapDataBlank = []
                 for (var i = 0; i < beaches2.length; i++) {
                     var beach = beaches2[i];
-                    placeMarker({lat: beach[11] / 100000, lng: beach[12] / 100000},beach)//调用函数创建标签
+                    ////////////// placeMarker({lat: beach[11] / 100000, lng: beach[12] / 100000},beach)//调用函数创建标签
                     // var marker = new google.maps.Marker({
                     //     position: {lat: beach[11]/100000, lng: beach[12]/100000},
                     //     map: map,
@@ -253,7 +253,7 @@
                         console.log(return_data2)
                         for (var i = 0; i < return_data2["data"].length; i++) {
                             var beach = return_data2["data"][i];
-                            placeMarker({lat: beach[1] / 100000, lng: beach[2] / 100000}, beach)//调用函数创建标签
+                            // placeMarker({lat: beach[1] / 100000, lng: beach[2] / 100000}, beach)//调用函数创建标签
                             // var marker = new google.maps.Marker({
                             //     position: {lat: beach[11]/100000, lng: beach[12]/100000},
                             //     map: map,
@@ -310,66 +310,64 @@
                 // });
                 // // heatmap.setMap(map2);
 
-
-                //////////////////////////////////////////////////////////////
-                // var heatmap2 = new google.maps.visualization.HeatmapLayer({
-                //     data: heatmapData2,
-                //     map: map,
-                //     radius:15,
-                //     opacity:0.8
-                // });
-                //地图外操作
-                // var button1flag=false;
-                $("#button1").click(function () {
-                    $("h1").text("Reset Maps")
-                    console.log("Reset")
-                    console.log(map.getCenter())
-                    map.setCenter(new google.maps.LatLng(46.867642, 2.424957));
-                    // map.setCenter(new google.maps.LatLng(37.782, -122.447));
-                    // if(button1flag==false){
-                    //     map.setCenter(new google.maps.LatLng(37.782, -122.447));
-                    //     button1flag=true;
-                    // }else{
-                    //     map.setCenter(new google.maps.LatLng(46.867642, 2.424957));
-                    //     button1flag=false;
-                    // }
+                var heatmap2 = new google.maps.visualization.HeatmapLayer({
+                    data: heatmapData2,
+                    map: map,
+                    radius:15,
+                    opacity:0.8
                 });
+                //地图外操作
+                var button1flag=false;
+                // $("#button1").click(function () {
+                //     $("h1").text("Change between Fance and the USA")
+                //     console.log("button1")
+                //     console.log(map.getCenter())
+                //     // map.setCenter(new google.maps.LatLng(37.782, -122.447));
+                //     if(button1flag==false){
+                //         map.setCenter(new google.maps.LatLng(37.782, -122.447));
+                //         button1flag=true;
+                //     }else{
+                //         map.setCenter(new google.maps.LatLng(46.867642, 2.424957));
+                //         button1flag=false;
+                //     }
+                // });
 
                 var flag_cluster=0;
-                $("#button2").click(function () {
-                    $("h1").text("Change the visibility of the markers ")
-                    console.log("button2")
-                    // map.setOption(new google.maps.MapOptions)
-                    if(flag_cluster){
-                        markerCluster2.addMarkers(markers2)
-                        for (var i=0;i<markers2.length;i++ ){
-                            markers2[i].setVisible(true)
-                        }
-                        flag_cluster=0
-                    }else{
-                        for (var i=0;i<markers2.length;i++ ){
-                            // debugger;
-                            console.log(markers2[i].getPosition())
-                            markers2[i].setVisible(false)
-                            // debugger;
-                            // console.log(typeof markers2[i]);
-                        }
-                        // console.log(markers2)
-                        markerCluster2.clearMarkers();
-                        flag_cluster=1;
-                    }
-
-
-
-                });
-                // $("#button3").click(function () {
-                //     $("h1").text("Chage the map type")
-                //     console.log("button3")
-                //     heatmap2.getData().length?heatmap2.setData(heatmapDataBlank):heatmap2.setData(heatmapData2);
+                // $("#button2").click(function () {
+                //     $("h1").text("Change the marker")
+                //     console.log("button2")
+                //     // map.setOption(new google.maps.MapOptions)
+                //     if(flag_cluster){
+                //         markerCluster2.addMarkers(markers2)
+                //         for (var i=0;i<markers2.length;i++ ){
+                //             markers2[i].setVisible(true)
+                //         }
+                //         flag_cluster=0
+                //     }else{
+                //         for (var i=0;i<markers2.length;i++ ){
+                //             // debugger;
+                //             console.log(markers2[i].getPosition())
+                //             markers2[i].setVisible(false)
+                //             // debugger;
+                //             // console.log(typeof markers2[i]);
+                //         }
+                //         // console.log(markers2)
+                //         markerCluster2.clearMarkers();
+                //         flag_cluster=1;
+                //     }
+                //
+                //
                 //
                 // });
-                // var return_data = {}
-                // var return_data2 = {}
+
+                $("#button3").click(function () {
+                    $("h1").text("Chage the map type")
+                    console.log("button3")
+                    heatmap2.getData().length?heatmap2.setData(heatmapDataBlank):heatmap2.setData(heatmapData2);
+
+                });
+                var return_data = {}
+                var return_data2 = {}
                 // $("#button4").click(function(){
                 //
                 //
@@ -481,9 +479,9 @@
     <div id="classification" style="width:38%;height:100%;float:right;">
         <div style="margin:5px 5px 5px 10px;padding:10px;border-radius: 5px;box-shadow:0 2px 4px 2px  rgba(0, 0, 0, 0.3);">
             <h1 id="title">TITLE HERE</h1>
-            <button id="button1">Reset</button><br/>
-            <button id="button2">Visibility</button>
-            <!--<button id="button3">BUTTON3</button>-->
+            <!--<button id="button1">BUTTON1</button>-->
+            <!--<button id="button2">BUTTON2</button>-->
+            <button id="Visibility">BUTTON3</button>
             <!--<button id="button4">BUTTON4</button>-->
         </div>
     </div>
@@ -502,7 +500,6 @@
         font-family: Microsoft YaHei; /* 设置字体 */
         color: white; /* 字体颜色 */
         font-size: 17px; /* 字体大小 */
-        margin-top: 10px;
     }
     button:hover { /* 鼠标移入按钮范围时改变颜色 */
         background: #5599FF;

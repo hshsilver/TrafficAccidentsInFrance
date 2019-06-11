@@ -1,103 +1,149 @@
 <!DOCTYPE html>
 <html style="height: 100%">
-   <head>
-       <meta charset="utf-8">
-   </head>
-   <body style="height: 100%; margin: 0">
-       <div id="container" style="height: 100%"></div>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
-       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>-->
-       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>-->
-       <!--<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>-->
-       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>-->
-       <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>-->
-       <script type="text/javascript">
-           var data =[];
-           // data = [60, 5, 0.30, -100, 1500]
-            data= localStorage.myprediction;
-var dom = document.getElementById("container");
-var myChart = echarts.init(dom);
-var app = {};
-option = null;
-option = {
-    // title: {
-    //     text: '自定义雷达图'
-    // },
-    // legend: {
-    //     data: ['图一','图二', '张三', '李四']
-    // },
-    radar: [
-        {
-            indicator: [
-                { text: 'Death' },
-                { text: 'Hospital' },
-                { text: 'Light' },
-                { text: 'Unscathed' },
-            ],
-            center: ['50%', '50%'],
-            radius: 50,
-            startAngle: 45,
-            splitNumber: 5,
-            shape: 'circle',
-            name: {
-                formatter:'{value}',
-                textStyle: {
-                    color:'#72ACD1'
-                }
-            },
-            splitArea: {
-                areaStyle: {
-                    color: ['rgba(114, 172, 209, 0.2)',
-                    'rgba(114, 172, 209, 0.4)', 'rgba(114, 172, 209, 0.6)',
-                    'rgba(114, 172, 209, 0.8)', 'rgba(114, 172, 209, 1)'],
-                    shadowColor: 'rgba(0, 0, 0, 0.3)',
-                    shadowBlur: 10
-                }
-            },
-            axisLine: {
-                lineStyle: {
-                    color: 'rgba(255, 255, 255, 0.5)'
-                }
-            },
-            splitLine: {
-                lineStyle: {
-                    color: 'rgba(255, 255, 255, 0.5)'
+<head>
+    <meta charset="utf-8">
+</head>
+<body style="height: 100%; width:400px;margin: 0">
+<div id="location"
+     style="height: 48%; border-radius: 10px;box-shadow:0 2px 4px 2px  rgba(0, 0, 0, 0.3);margin: 10px ">
+    <!--<iframe frameborder="no" scrolling="yes" allowtransparency="yes" src="mapinfo.html" width="100%" height="100%"></iframe>-->
+</div>
+<div id="container"
+     style="height: 48%;border-radius: 10px;box-shadow:0 2px 4px 2px  rgba(0, 0, 0, 0.3);margin: 10px"></div>
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD41X7x5QV4_4_aSnLM6CB7egXhvSV3QGM&language=zh-CN&sensor=true">
+</script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>-->
+<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>-->
+<!--<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>-->
+<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>-->
+<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>-->
+
+<script type="text/javascript">
+    localStorage.setItem("myUpdateLat",5084579);
+    localStorage.setItem("myUpdateLng",0);
+        function initialize() {
+            var mapProp = {
+                center: new google.maps.LatLng(46.867642, 2.424957),
+                zoom: 18,
+                disableDefaultUI: true,
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            }
+
+            // var marker_position =  new google.maps.LatLng(51.508742, -0.120850);
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(46.867642, 2.424956),
+                map: map
+            });
+
+            var markernew = new google.maps.Marker({position: new google.maps.LatLng(46.867642, 2.424957), map: map});
+            console.log("haha")
+            // marker.setMap(map);
+            // var uluru = {lat: -25.344, lng: 131.036};
+            // // The map, centered at Uluru
+            // // var map = new google.maps.Map(
+            // //     document.getElementById('map'), {zoom: 4, center: uluru});
+            // var marker = new google.maps.Marker({position: uluru, map: map});
+            var map = new google.maps.Map(document.getElementById("location"), mapProp);
+            map.setCenter({lat: localStorage.myUpdateLat/100000, lng: localStorage.myUpdateLng/100000})
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+
+</script>
+<script type="text/javascript">
+    var data = [];
+    data = [60, 5, 0.30, 100]
+    // data= localStorage.myPrediction;
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+        // title: {
+        //     text: '自定义雷达图'
+        // },
+        // legend: {
+        //     data: ['图一','图二', '张三', '李四']
+        // },
+        radar: [
+            {
+                indicator: [
+                    {text: 'Death'},
+                    {text: 'Hospital'},
+                    {text: 'Light'},
+                    {text: 'Unscathed'},
+                ],
+                center: ['50%', '50%'],
+                radius: 100,
+                startAngle: 45,
+                splitNumber: 5,
+                shape: 'circle',
+                name: {
+                    formatter: '{value}',
+                    textStyle: {
+                        color: '#72ACD1'
+                    }
+                },
+                splitArea: {
+                    areaStyle: {
+                        color: ['rgba(114, 172, 209, 0.2)',
+                            'rgba(114, 172, 209, 0.4)', 'rgba(114, 172, 209, 0.6)',
+                            'rgba(114, 172, 209, 0.8)', 'rgba(114, 172, 209, 1)'],
+                        shadowColor: 'rgba(0, 0, 0, 0.3)',
+                        shadowBlur: 10
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(255, 255, 255, 0.5)'
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: 'rgba(255, 255, 255, 0.5)'
+                    }
                 }
             }
-        }
-    ],
-    series: [
-        {
-            name: '雷达图',
-            type: 'radar',
-            itemStyle: {
-                emphasis: {
-                    // color: 各异,
-                    lineStyle: {
-                        width: 4
-                    }
-                }
-            },
-            data: [
-                {
-                    value: data,
-                    // name: '图二',
-                    areaStyle: {
-                        normal: {
-                            color: 'rgba(255, 255, 255, 0.5)'
+        ],
+        series: [
+            {
+                name: '雷达图',
+                type: 'radar',
+                itemStyle: {
+                    emphasis: {
+                        // color: 各异,
+                        lineStyle: {
+                            width: 4
                         }
                     }
-                }
-            ]
-        }
-    ]
-};
-if (option && typeof option === "object") {
-    myChart.setOption(option, true);
-}
-       </script>
-   </body>
+                },
+                data: [
+                    {
+                        value: data,
+                        // name: '图二',
+                        areaStyle: {
+                            normal: {
+                                color: 'rgba(255, 255, 255, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    };
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+<!--<script async defer-->
+        <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD41X7x5QV4_4_aSnLM6CB7egXhvSV3QGM&callback=initialize">-->
+<!--</script>-->
+</body>
 </html>
