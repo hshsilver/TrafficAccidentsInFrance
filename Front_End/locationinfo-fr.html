@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -13,201 +14,200 @@
 
 
 </head>
+
 <body>
-<div id="geo">
-    <h1><i class="fa fa-camera-retro fa-1x"></i>&nbsp;{{name}}</h1>
+    <div id="geo">
+        <h1><i class="fa fa-camera-retro fa-1x"></i>&nbsp;{{name}}</h1>
 
 
 
-    <div class="list-group">
-        <a class="list-group-item"><i class="fa fa-map-marker fa-fw"></i><b>&nbsp;GEO&nbsp;</b>● ({{long}}, &nbsp;{{lat}})</a>
-        <a class="list-group-item"><i class="fa fa-paperclip fa-fw"></i><b>&nbsp;ID&nbsp;</b>● <span id="info">Info:</span></a>
-        <a class="list-group-item"><i class="fa fa-calendar fa-fw"></i><b>&nbsp;DATE&nbsp;</b>● 20<span id="year">YYYY</span>.<span id="month">MM</span>.<span id="day">DD</span>&nbsp;&nbsp;<span id = "HH">HH</span>: <span id="MM">MM</span></a>
-        <a class="list-group-item"><i class="fa fa-sun-o fa-fw"></i><b>&nbsp;ILLUMINATION&nbsp;</b>● <span id="lum">lum光照</span></a>
-        <a class="list-group-item"><i class="fa fa-arrows-alt fa-fw"></i><b>&nbsp;INTERSECTION&nbsp;</b>● <span id="int">int交叉</span></a>
-        <a class="list-group-item"><i class="fa fa-bolt fa-fw"></i><b>&nbsp;ATMOSPHERE&nbsp;</b>● <span id="atm">atm天气</span></a>
-        <a class="list-group-item"><i class="fa fa-car fa-fw"></i><b>&nbsp;COLLIDE&nbsp;</b>● <span id="col">col碰撞类型</span></a>
-        <a class="list-group-item"><i class="fa fa-road fa-fw"></i><b>&nbsp;ROAD CATEGORY&nbsp;</b>● <span id="catr">catr道路类别</span></a>
-        <a class="list-group-item"><i class="fa fa-train fa-fw"></i><b>&nbsp;TRAFFIC SYSTEM&nbsp;</b>● <span id="circ">circ道路类型</span></a>
-        <a class="list-group-item"><i class="fa fa-road fa-fw"></i><b>&nbsp;LANE NUMBER&nbsp;</b>● <span id="nbv">nbv车道数量</span></a>
-        <a class="list-group-item"><i class="fa fa-ambulance fa-fw"></i><b>&nbsp;EMERGENCY LANE&nbsp;</b>● <span id="vosp">vosp预留车道</span></a>
-        <a class="list-group-item"><i class="fa fa-exclamation-triangle fa-fw"></i><b>&nbsp;GRADIENT&nbsp;</b>● <span id="prof">prof坡度</span></a>
-        <a class="list-group-item"><i class="fa fa-ils fa-fw"></i><b>&nbsp;ROUTE PLAN&nbsp;</b>● <span id="plan">plan路线</span></a>
-        <a class="list-group-item"><i class="fa fa-road fa-fw"></i><b>&nbsp;CENTRAL FIELD WIDTH&nbsp;</b>● <span id="lartpc">lartpc中央实地宽度</span></a>
-        <a class="list-group-item"><i class="fa fa-road fa-fw"></i><b>&nbsp;ROAD WIDTH&nbsp;</b>● <span id="larrout">larrout分配给车辆的宽度</span></a>
-        <a class="list-group-item"><i class="fa fa-square fa-fw"></i><b>&nbsp;SURFACE CONDITION&nbsp;</b>● <span id="surf">surf表面状况</span></a>
-        <a class="list-group-item"><i class="fa fa-thumb-tack fa-fw"></i><b>&nbsp;INFRASTRUCTURE&nbsp;</b>● <span id="infra">infra基础设施</span></a>
-        <a class="list-group-item"><i class="fa fa-location-arrow fa-fw"></i><b>&nbsp;ACCIDENT SITUATION&nbsp;</b>● <spna id="situ">situ事故情况</spna></a>
-        <a class="list-group-item"><i class="fa fa-graduation-cap fa-fw"></i><b>&nbsp;NEAR THE SCHOOL&nbsp;</b>● <span id="env1">env1靠近学校</span></a>
-        <!--<a class="list-group-item"><i class="fa fa-cog fa-fw"></i>&nbsp;Settings</a>-->
+        <div class="list-group">
+            <a class="list-group-item"><i class="fa fa-map-marker fa-fw"></i><b>&nbsp;GEO&nbsp;</b>● ({{long}}, &nbsp;{{lat}})</a>
+            <a class="list-group-item"><i class="fa fa-paperclip fa-fw"></i><b>&nbsp;ID&nbsp;</b>● <span id="info">Info:</span></a>
+            <a class="list-group-item"><i class="fa fa-calendar fa-fw"></i><b>&nbsp;DATE&nbsp;</b>● 20<span id="year">YYYY</span>.<span id="month">MM</span>.<span id="day">DD</span>&nbsp;&nbsp;<span id = "HH">HH</span>: <span id="MM">MM</span></a>
+            <a class="list-group-item"><i class="fa fa-sun-o fa-fw"></i><b>&nbsp;ILLUMINATION&nbsp;</b>● <span id="lum">lum光照</span></a>
+            <a class="list-group-item"><i class="fa fa-arrows-alt fa-fw"></i><b>&nbsp;INTERSECTION&nbsp;</b>● <span id="int">int交叉</span></a>
+            <a class="list-group-item"><i class="fa fa-bolt fa-fw"></i><b>&nbsp;ATMOSPHERE&nbsp;</b>● <span id="atm">atm天气</span></a>
+            <a class="list-group-item"><i class="fa fa-car fa-fw"></i><b>&nbsp;COLLIDE&nbsp;</b>● <span id="col">col碰撞类型</span></a>
+            <a class="list-group-item"><i class="fa fa-road fa-fw"></i><b>&nbsp;ROAD CATEGORY&nbsp;</b>● <span id="catr">catr道路类别</span></a>
+            <a class="list-group-item"><i class="fa fa-train fa-fw"></i><b>&nbsp;TRAFFIC SYSTEM&nbsp;</b>● <span id="circ">circ道路类型</span></a>
+            <a class="list-group-item"><i class="fa fa-road fa-fw"></i><b>&nbsp;LANE NUMBER&nbsp;</b>● <span id="nbv">nbv车道数量</span></a>
+            <a class="list-group-item"><i class="fa fa-ambulance fa-fw"></i><b>&nbsp;EMERGENCY LANE&nbsp;</b>● <span id="vosp">vosp预留车道</span></a>
+            <a class="list-group-item"><i class="fa fa-exclamation-triangle fa-fw"></i><b>&nbsp;GRADIENT&nbsp;</b>● <span id="prof">prof坡度</span></a>
+            <a class="list-group-item"><i class="fa fa-ils fa-fw"></i><b>&nbsp;ROUTE PLAN&nbsp;</b>● <span id="plan">plan路线</span></a>
+            <a class="list-group-item"><i class="fa fa-road fa-fw"></i><b>&nbsp;CENTRAL FIELD WIDTH&nbsp;</b>● <span id="lartpc">lartpc中央实地宽度</span></a>
+            <a class="list-group-item"><i class="fa fa-road fa-fw"></i><b>&nbsp;ROAD WIDTH&nbsp;</b>● <span id="larrout">larrout分配给车辆的宽度</span></a>
+            <a class="list-group-item"><i class="fa fa-square fa-fw"></i><b>&nbsp;SURFACE CONDITION&nbsp;</b>● <span id="surf">surf表面状况</span></a>
+            <a class="list-group-item"><i class="fa fa-thumb-tack fa-fw"></i><b>&nbsp;INFRASTRUCTURE&nbsp;</b>● <span id="infra">infra基础设施</span></a>
+            <a class="list-group-item"><i class="fa fa-location-arrow fa-fw"></i><b>&nbsp;ACCIDENT SITUATION&nbsp;</b>● <spna id="situ">situ事故情况</spna></a>
+            <a class="list-group-item"><i class="fa fa-graduation-cap fa-fw"></i><b>&nbsp;NEAR THE SCHOOL&nbsp;</b>● <span id="env1">env1靠近学校</span></a>
+            <!--<a class="list-group-item"><i class="fa fa-cog fa-fw"></i>&nbsp;Settings</a>-->
+        </div>
     </div>
-</div>
-<script>
-    new Vue({
-        el: '#geo',
-        data:function() {
-            return {
-            name:"Details",
-            long:JSON.parse(localStorage.mylocation).lng,
-            lat:JSON.parse(localStorage.mylocation).lat,
-            info:0
-            }
-        },
-        // data () {
-        //     return {
-        //         info: null
-        //     }
-        // },
-        created(){
-            $.ajax({
-                type: 'POST',
-                url: 'http://fr.hshsilver.com/detail',
-                data: {
-                    Num_Acc: localStorage.myInfo
-                    lang:"fr"
-                },
-                success: function(data) {
-                    console.log(data);
-                    data = $.parseJSON(data);
-                    self.info=0;
-                    self.info=data.data;
-                    console.log(self.info);
-                    var hh = self.info[4].toString().substring(0,2);
-                    var mm = self.info[4].toString().substring(2,4);
-                    console.log(hh,mm);
-                    $("#info").text(self.info[0]);
-                    $("#year").text(self.info[1]);
-                    $("#month").text(self.info[2]);
-                    $("#day").text(self.info[3]);
-                    $("#HH").text(hh);
-                    $("#MM").text(mm);
-                    $("#lum").text(self.info[4]);
-                    $("#int").text(self.info[5]);
-                    $("#atm").text(self.info[6]);
-                    $("#col").text(self.info[7]);
-                    $("#catr").text(self.info[8]);
-                    $("#circ").text(self.info[11]);
-                    $("#nbv").text(self.info[12]);
-                    $("#vosp").text(self.info[13]);
-                    $("#prof").text(self.info[14]);
-                    $("#plan").text(self.info[15]);
-                    $("#lartpc").text(self.info[16]);
-                    $("#larrout").text(self.info[17]);
-                    $("#surf").text(self.info[18]);
-                    $("#infra").text(self.info[19]);
-                    $("#situ").text(self.info[20]);
-                    $("#env1").text(self.info[21]);
+    <script>
+        new Vue({
+            el: '#geo',
+            data: function() {
+                return {
+                    name: "Details",
+                    long: JSON.parse(localStorage.mylocation).lng,
+                    lat: JSON.parse(localStorage.mylocation).lat,
+                    info: 0
                 }
-            });
-            // $.ajax({
-            //     type: 'POST',
-            //     url: 'http://fr.hshsilver.com/detail',
-            //     data: {
-            //         Num_Acc: localStorage.myInfo
-            //     },
-            //     success: function(data) {
-            //         console.log(data);
-            //         self.info=0;
-            //         self.info=data.data.data;
-            //         console.log(self.info);
-            //         $("#info").text(self.info[0]);
-            //         $("#year").text(self.info[1]);
-            //         $("#month").text(self.info[2]);
-            //         $("#day").text(self.info[3]);
-            //         $("#lum").text(self.info[4]);
-            //         $("#int").text(self.info[5]);
-            //         $("#atm").text(self.info[6]);
-            //         $("#col").text(self.info[7]);
-            //         $("#catr").text(self.info[8]);
-            //         $("#circ").text(self.info[11]);
-            //         $("#nbv").text(self.info[12]);
-            //         $("#vosp").text(self.info[13]);
-            //         $("#prof").text(self.info[14]);
-            //         $("#plan").text(self.info[15]);
-            //         $("#lartpc").text(self.info[16]);
-            //         $("#larrout").text(self.info[17]);
-            //         $("#surf").text(self.info[18]);
-            //         $("#infra").text(self.info[19]);
-            //         $("#situ").text(self.info[20]);
-            //         $("#env1").text(self.info[21]);
+            },
+            // data () {
+            //     return {
+            //         info: null
             //     }
-            //     });
-            // axios.post('http://fr.hshsilver.com/detail', {
-            //     params: {
-            //         Num_Acc: localStorage.myInfo
-            //     }
-            // })
-            //     .then(function (response) {
-            //         console.log(response);
-            //         self.info=0;
-            //         self.info=response.data.data;
-            //         console.log(self.info);
-            //         $("#info").text(self.info[0]);
-            //         $("#year").text(self.info[1]);
-            //         $("#month").text(self.info[2]);
-            //         $("#day").text(self.info[3]);
-            //         $("#lum").text(self.info[4]);
-            //         $("#int").text(self.info[5]);
-            //         $("#atm").text(self.info[6]);
-            //         $("#col").text(self.info[7]);
-            //         $("#catr").text(self.info[8]);
-            //         $("#circ").text(self.info[11]);
-            //         $("#nbv").text(self.info[12]);
-            //         $("#vosp").text(self.info[13]);
-            //         $("#prof").text(self.info[14]);
-            //         $("#plan").text(self.info[15]);
-            //         $("#lartpc").text(self.info[16]);
-            //         $("#larrout").text(self.info[17]);
-            //         $("#surf").text(self.info[18]);
-            //         $("#infra").text(self.info[19]);
-            //         $("#situ").text(self.info[20]);
-            //         $("#env1").text(self.info[21]);
-            //     })
-            //     .catch(function (error) {
-            //         console.log(error);
-            //     });
-            // axios
-            //     .get('test2.json')
-            //     .then(function (response) {
-            //         console.log(response);
-            //         self.info=0;
-            //         self.info=response.data.data;
-            //         console.log(self.info);
-            //         $("#info").text(self.info[0]);
-            //         $("#year").text(self.info[1]);
-            //         $("#month").text(self.info[2]);
-            //         $("#day").text(self.info[3]);
-            //         $("#lum").text(self.info[4]);
-            //         $("#int").text(self.info[5]);
-            //         $("#atm").text(self.info[6]);
-            //         $("#col").text(self.info[7]);
-            //         $("#catr").text(self.info[8]);
-            //         $("#circ").text(self.info[11]);
-            //         $("#nbv").text(self.info[12]);
-            //         $("#vosp").text(self.info[13]);
-            //         $("#prof").text(self.info[14]);
-            //         $("#plan").text(self.info[15]);
-            //         $("#lartpc").text(self.info[16]);
-            //         $("#larrout").text(self.info[17]);
-            //         $("#surf").text(self.info[18]);
-            //         $("#infra").text(self.info[19]);
-            //         $("#situ").text(self.info[20]);
-            //         $("#env1").text(self.info[21]);
-            //
-            //     })
-            //     .catch(function (error) { // 请求失败处理
-            //             console.log(error);
-            //         }
-            //     );
+            // },
+            created() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://fr.hshsilver.com/detail',
+                    data: {
+                        Num_Acc: localStorage.myInfo,
+                        lang: "fr"
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        data = $.parseJSON(data);
+                        self.info = 0;
+                        self.info = data.data;
+                        console.log(self.info);
+                        var hh = self.info[4].toString().substring(0, 2);
+                        var mm = self.info[4].toString().substring(2, 4);
+                        console.log(hh, mm);
+                        $("#info").text(self.info[0]);
+                        $("#year").text(self.info[1]);
+                        $("#month").text(self.info[2]);
+                        $("#day").text(self.info[3]);
+                        $("#HH").text(hh);
+                        $("#MM").text(mm);
+                        $("#lum").text(self.info[4]);
+                        $("#int").text(self.info[5]);
+                        $("#atm").text(self.info[6]);
+                        $("#col").text(self.info[7]);
+                        $("#catr").text(self.info[8]);
+                        $("#circ").text(self.info[11]);
+                        $("#nbv").text(self.info[12]);
+                        $("#vosp").text(self.info[13]);
+                        $("#prof").text(self.info[14]);
+                        $("#plan").text(self.info[15]);
+                        $("#lartpc").text(self.info[16]);
+                        $("#larrout").text(self.info[17]);
+                        $("#surf").text(self.info[18]);
+                        $("#infra").text(self.info[19]);
+                        $("#situ").text(self.info[20]);
+                        $("#env1").text(self.info[21]);
+                    }
+                });
+                // $.ajax({
+                //     type: 'POST',
+                //     url: 'http://fr.hshsilver.com/detail',
+                //     data: {
+                //         Num_Acc: localStorage.myInfo
+                //     },
+                //     success: function(data) {
+                //         console.log(data);
+                //         self.info=0;
+                //         self.info=data.data.data;
+                //         console.log(self.info);
+                //         $("#info").text(self.info[0]);
+                //         $("#year").text(self.info[1]);
+                //         $("#month").text(self.info[2]);
+                //         $("#day").text(self.info[3]);
+                //         $("#lum").text(self.info[4]);
+                //         $("#int").text(self.info[5]);
+                //         $("#atm").text(self.info[6]);
+                //         $("#col").text(self.info[7]);
+                //         $("#catr").text(self.info[8]);
+                //         $("#circ").text(self.info[11]);
+                //         $("#nbv").text(self.info[12]);
+                //         $("#vosp").text(self.info[13]);
+                //         $("#prof").text(self.info[14]);
+                //         $("#plan").text(self.info[15]);
+                //         $("#lartpc").text(self.info[16]);
+                //         $("#larrout").text(self.info[17]);
+                //         $("#surf").text(self.info[18]);
+                //         $("#infra").text(self.info[19]);
+                //         $("#situ").text(self.info[20]);
+                //         $("#env1").text(self.info[21]);
+                //     }
+                //     });
+                // axios.post('http://fr.hshsilver.com/detail', {
+                //     params: {
+                //         Num_Acc: localStorage.myInfo
+                //     }
+                // })
+                //     .then(function (response) {
+                //         console.log(response);
+                //         self.info=0;
+                //         self.info=response.data.data;
+                //         console.log(self.info);
+                //         $("#info").text(self.info[0]);
+                //         $("#year").text(self.info[1]);
+                //         $("#month").text(self.info[2]);
+                //         $("#day").text(self.info[3]);
+                //         $("#lum").text(self.info[4]);
+                //         $("#int").text(self.info[5]);
+                //         $("#atm").text(self.info[6]);
+                //         $("#col").text(self.info[7]);
+                //         $("#catr").text(self.info[8]);
+                //         $("#circ").text(self.info[11]);
+                //         $("#nbv").text(self.info[12]);
+                //         $("#vosp").text(self.info[13]);
+                //         $("#prof").text(self.info[14]);
+                //         $("#plan").text(self.info[15]);
+                //         $("#lartpc").text(self.info[16]);
+                //         $("#larrout").text(self.info[17]);
+                //         $("#surf").text(self.info[18]);
+                //         $("#infra").text(self.info[19]);
+                //         $("#situ").text(self.info[20]);
+                //         $("#env1").text(self.info[21]);
+                //     })
+                //     .catch(function (error) {
+                //         console.log(error);
+                //     });
+                // axios
+                //     .get('test2.json')
+                //     .then(function (response) {
+                //         console.log(response);
+                //         self.info=0;
+                //         self.info=response.data.data;
+                //         console.log(self.info);
+                //         $("#info").text(self.info[0]);
+                //         $("#year").text(self.info[1]);
+                //         $("#month").text(self.info[2]);
+                //         $("#day").text(self.info[3]);
+                //         $("#lum").text(self.info[4]);
+                //         $("#int").text(self.info[5]);
+                //         $("#atm").text(self.info[6]);
+                //         $("#col").text(self.info[7]);
+                //         $("#catr").text(self.info[8]);
+                //         $("#circ").text(self.info[11]);
+                //         $("#nbv").text(self.info[12]);
+                //         $("#vosp").text(self.info[13]);
+                //         $("#prof").text(self.info[14]);
+                //         $("#plan").text(self.info[15]);
+                //         $("#lartpc").text(self.info[16]);
+                //         $("#larrout").text(self.info[17]);
+                //         $("#surf").text(self.info[18]);
+                //         $("#infra").text(self.info[19]);
+                //         $("#situ").text(self.info[20]);
+                //         $("#env1").text(self.info[21]);
+                //
+                //     })
+                //     .catch(function (error) { // 请求失败处理
+                //             console.log(error);
+                //         }
+                //     );
 
-        },
-        mounted () {
+            },
+            mounted() {
 
-        }
-    })
-
-
-
-</script>
+            }
+        })
+    </script>
 </body>
+
 </html>
