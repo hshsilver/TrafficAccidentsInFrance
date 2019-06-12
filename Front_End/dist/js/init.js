@@ -422,8 +422,8 @@ var languageInit = function() {
         } else if (getCookieVal("lang") == "fr") {
             setLanguage("fr");
         } else {
-            var language = navigator.userLanguage;
-            if (language.substr(0, 2) == 'cn') {
+            var language = navigator.language || navigator.userLanguage;
+            if (language.substr(0, 2) == 'zh') {
                 setLanguage("cn");
             } else if (language.substr(0, 2) == 'fr') {
                 setLanguage("fr");
