@@ -48,19 +48,19 @@ data4 = data4.map(function (item) {
 
 option = {
     title: {
-        text: 'Punch Card of Accidents',
-        link: 'https://github.com/'
+        text: 'Carte ponctuelle d\'accident',
+        // link: 'https://github.com/'
     },
     legend: {
-        data: ['Death',"Hospital","Light","Unscathed"],
+        data: ['Tuées',"Hospitalisées","Légères","Indemnes"],
         left: 'right',
         selected: {
             // 选中'系列1'
-            'Death': true,
+            'Tuées': true,
             // 不选中'系列2'
-            'Hospital': false,
-            "Light":false,
-            "Unscathed":false
+            'Hospitalisées': false,
+            "Légères":false,
+            "Indemnes":false
         }
     },
     tooltip: {
@@ -98,7 +98,7 @@ option = {
         }
     },
     series: [{
-        name: 'Death',
+        name: 'Tuées',
         type: 'scatter',
         symbolSize: function (val) {
             return val[2] * 0.02;
@@ -108,7 +108,7 @@ option = {
             return idx * 5;
         }
     },{
-        name: 'Hospital',
+        name: 'Hospitalisées',
         type: 'scatter',
         symbolSize: function (val) {
             return val[2] * 0.02;
@@ -118,7 +118,7 @@ option = {
             return idx * 5;
         }
     },{
-        name: 'Light',
+        name: 'Légères',
         type: 'scatter',
         symbolSize: function (val) {
             return val[2] * 0.02;
@@ -128,7 +128,7 @@ option = {
             return idx * 5;
         }
     },{
-        name: 'Unscathed',
+        name: 'Indemnes',
         type: 'scatter',
         symbolSize: function (val) {
             return val[2] * 0.02;

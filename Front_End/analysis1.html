@@ -59,8 +59,8 @@
                             <a lang class="dropdown-item" href="analysis.html">Analysis</a>
                             <a lang class="dropdown-item" href="map.html">Map</a>
                             <a lang class="dropdown-item" href="heatmap.html">Heat Map</a>
-                            <a lang class="dropdown-item active" href="analysis1.html">calendar-pie</a>
-                            <a lang class="dropdown-item" href="analysis2.html">calendar-horizontal</a>
+                            <a lang class="dropdown-item active" href="analysis1.html">Month Chart</a>
+                            <a lang class="dropdown-item" href="analysis2.html">Year Chart</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -86,15 +86,15 @@
             <!-- Breadcrumb -->
             <nav class="hk-breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-light bg-transparent">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item">Visualization</li>
-                    <li class="breadcrumb-item active" aria-current="page">Analysis</li>
+                    <li lang class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li lang class="breadcrumb-item">Visualization</li>
+                    <li lang class="breadcrumb-item active" aria-current="page">Month Chart</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
             <!-- Container -->
             <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
-                <iframe id='result' src="calendar-pie.html" width="100%" height="700px" scrolling="no"></iframe>
+                <iframe id='result' width="100%" height="700px" scrolling="no"></iframe>
                 <!-- /Row -->
             </div>
             <!-- /Container -->
@@ -104,7 +104,7 @@
                 <footer class="footer">
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
-                            <p>Pampered by<a href="http://www.bootstrapmb.com/" class="text-dark" target="_blank">Hencework</a> © 2019</p>
+                            <p>Pampered by<a href="http://www.bootstrapmb.com/" class="text-dark" target="_blank">lzh,hsh,ly</a> © 2019</p>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <p class="d-inline-block">Follow us</p>
@@ -158,8 +158,10 @@
 
     <!-- Init JavaScript -->
     <script src="dist/js/init.js"></script>
-    <script src="dist/js/dashboard2-data.js"></script>
-
+    <script src="dist/js/language.js"></script>
+    <script>
+        $("#result").attr("src", 'calendar-pie' + getLangNail());
+    </script>
 </body>
 
 </html>
