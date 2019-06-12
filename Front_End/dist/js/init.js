@@ -422,7 +422,14 @@ var languageInit = function() {
         } else if (getCookieVal("lang") == "fr") {
             setLanguage("fr");
         } else {
-            setLanguage("en");
+            var language = navigator.userLanguage;
+            if (language.indexOf('cn') > -1) {
+                setLanguage("cn");
+            } else if (language.indexOf('fr') > -1) {
+                setLanguage("fr");
+            } else {
+                setLanguage("en");
+            }
         }
 
         // 切换语言事件 根据自己业务而定
