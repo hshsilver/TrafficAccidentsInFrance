@@ -423,9 +423,9 @@ var languageInit = function() {
             setLanguage("fr");
         } else {
             var language = navigator.userLanguage;
-            if (language.indexOf('cn') > -1) {
+            if (language.substr(0, 2) == 'cn') {
                 setLanguage("cn");
-            } else if (language.indexOf('fr') > -1) {
+            } else if (language.substr(0, 2) == 'fr') {
                 setLanguage("fr");
             } else {
                 setLanguage("en");
