@@ -66,7 +66,7 @@
     <script type="text/javascript">
         var data = [];
         data = [60, 5, 0.30, 100]
-            // data = localStorage.myPrediction;
+        data = JSON.parse(localStorage.myPrediction);
         var dom = document.getElementById("container");
         var myChart = echarts.init(dom);
         var app = {};
